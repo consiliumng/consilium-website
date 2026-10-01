@@ -1,0 +1,181 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "reports"
+    label: "Reports"
+    folder: "content/reports"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Slug (used in the URL, e.g. hcw-2025)", name: "slug", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Type"
+        name: "tag"
+        widget: "select"
+        options: ["Research Report", "Data Tool", "Policy Brief"]
+      - { label: "Short description (shown on cards)", name: "description", widget: "text" }
+      - label: "Authors (pick from the list. Add a person under Authors first if they are not there yet)"
+        name: "authors"
+        widget: "relation"
+        collection: "authors"
+        search_fields: ["name"]
+        value_field: "slug"
+        display_fields: ["name"]
+        multiple: true
+        required: false
+      - { label: "Data source (shown under the title, e.g. Primary survey data or Public documents and reporting. Leave blank to hide)", name: "data_source", widget: "string", required: false }
+      - { label: "Full abstract (shown on the report page)", name: "body", widget: "markdown" }
+      - { label: "Methodology note (leave blank if not applicable — e.g. financial valuations)", name: "methodology", widget: "text", required: false }
+      - { label: "Metrics line (optional, shown on cards)", name: "metrics", widget: "string", required: false }
+      - { label: "Cover image", name: "image_url", widget: "image", required: false }
+      - { label: "Cover label (used when there's no image)", name: "cover_label", widget: "string" }
+      - { label: "Cover year", name: "cover_year", widget: "string" }
+      - { label: "Primary button text", name: "primary_cta_text", widget: "string" }
+      - { label: "Primary button link", name: "primary_cta_url", widget: "string" }
+      - { label: "Offer a PDF download?", name: "has_download", widget: "boolean", default: false }
+      - { label: "PDF file (what gets emailed when someone submits the download gate)", name: "pdf_file", widget: "file", required: false, media_library: { config: { multiple: false } } }
+      - { label: "Published date (display text, e.g. June 2025)", name: "published_date", widget: "string" }
+      - { label: "Published?", name: "published", widget: "boolean", default: true }
+      - { label: "Sort date", name: "date", widget: "datetime" }
+      - label: "Headline stats (up to 3, shown near the top)"
+        name: "stats"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Stat 1 number", name: "stat1_num", widget: "string", required: false }
+          - { label: "Stat 1 label", name: "stat1_label", widget: "string", required: false }
+          - { label: "Stat 2 number", name: "stat2_num", widget: "string", required: false }
+          - { label: "Stat 2 label", name: "stat2_label", widget: "string", required: false }
+          - { label: "Stat 3 number", name: "stat3_num", widget: "string", required: false }
+          - { label: "Stat 3 label", name: "stat3_label", widget: "string", required: false }
+      - label: "Key findings"
+        name: "findings"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Stat", name: "stat", widget: "string" }
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Description", name: "desc", widget: "string" }
+      - label: "Table of contents (leave empty to hide this section)"
+        name: "toc"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Section name", name: "section", widget: "string" }
+          - { label: "Page number", name: "page", widget: "string" }
+      - label: "Preview figures (up to 2 sample charts/images from the report — leave empty to hide)"
+        name: "preview_figures"
+        widget: "list"
+        required: false
+        max: 2
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text (for accessibility & image search)", name: "alt", widget: "string" }
+          - { label: "Caption", name: "caption", widget: "string" }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { label: "SEO title (leave blank to reuse the title above)", name: "seo_title", widget: "string", required: false }
+          - { label: "Meta description (150-160 characters)", name: "meta_description", widget: "text", required: false }
+          - { label: "Social share image (leave blank to reuse the cover image)", name: "social_image", widget: "image", required: false }
+
+  - name: "articles"
+    label: "Articles"
+    folder: "content/articles"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Slug (used in the URL, e.g. detty-december-healthcare)", name: "slug", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Tag"
+        name: "tag"
+        widget: "select"
+        options: ["Analysis", "From the editors", "Data", "Commentary"]
+      - label: "Authors (pick from the list. Add a person under Authors first if they are not there yet)"
+        name: "authors"
+        widget: "relation"
+        collection: "authors"
+        search_fields: ["name"]
+        value_field: "slug"
+        display_fields: ["name"]
+        multiple: true
+        required: false
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Estimated read time (e.g. \"6 min read\")", name: "read_time", widget: "string", required: false }
+      - { label: "Teaser (shown on cards)", name: "teaser", widget: "text" }
+      - { label: "Lead paragraph (the larger intro line at the top of the article)", name: "lead", widget: "text" }
+      - label: "Key takeaways (3-4 short bullets, shown near the top — leave empty to hide)"
+        name: "takeaways"
+        widget: "list"
+        required: false
+        field: { label: "Takeaway", name: "item", widget: "string" }
+      - { label: "Cover / social share image", name: "cover_image", widget: "image", required: false }
+      - label: "Article body (paste text, add headings, embed images and pull-quotes directly)"
+        name: "body"
+        widget: "markdown"
+        buttons: ["bold", "italic", "link", "heading-two", "quote", "bulleted-list", "numbered-list"]
+        image_options:
+          choose_url: false
+      - { label: "Published?", name: "published", widget: "boolean", default: true }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { label: "SEO title (leave blank to reuse the title above)", name: "seo_title", widget: "string", required: false }
+          - { label: "Meta description (150-160 characters)", name: "meta_description", widget: "text", required: false }
+          - { label: "Social share image (leave blank to reuse the cover image)", name: "social_image", widget: "image", required: false }
+
+  - name: "posts"
+    label: "Substack links (shown with Articles)"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Tag"
+        name: "tag"
+        widget: "select"
+        options: ["Analysis", "From the editors", "Data", "Commentary"]
+      - { label: "Teaser (shown on cards)", name: "teaser", widget: "text" }
+      - { label: "Link (e.g. the Substack post URL)", name: "url", widget: "string" }
+      - label: "Authors (pick from the list. Add a person under Authors first if they are not there yet)"
+        name: "authors"
+        widget: "relation"
+        collection: "authors"
+        search_fields: ["name"]
+        value_field: "slug"
+        display_fields: ["name"]
+        multiple: true
+        required: false
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Published?", name: "published", widget: "boolean", default: true }
+
+  - name: "authors"
+    label: "Authors"
+    folder: "content/authors"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: name
+    summary: "{{name}}"
+    fields:
+      - { label: "Slug (used in the web address, e.g. temiloluwa-akinjayeju)", name: "slug", widget: "string" }
+      - { label: "Full name (as it should appear, e.g. Dr. Temiloluwa Akinjayeju)", name: "name", widget: "string" }
+      - { label: "Role (one line, e.g. Research and Writing)", name: "role", widget: "string", required: false }
+      - { label: "Short bio (optional, shown on their page)", name: "bio", widget: "text", required: false }
+      - { label: "Photo (optional. Initials are shown if blank)", name: "photo", widget: "image", required: false }
+      - { label: "Published?", name: "published", widget: "boolean", default: true }

@@ -1,0 +1,35 @@
+[build]
+  command = "npx @11ty/eleventy"
+  publish = "_site"
+
+[[redirects]]
+  from = "/dentalsurvey26"
+  to = "/dentalsurvey26.html"
+  status = 200
+
+# Old addresses forward to the new ones, so existing links, shares and
+# search results keep working after "Research" became "Reports" and
+# "Writing" became "Articles".
+[[redirects]]
+  from = "/research"
+  to = "/reports/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/research.html"
+  to = "/reports/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/writing"
+  to = "/articles/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/writing.html"
+  to = "/articles/"
+  status = 301
+  force = true

@@ -1,0 +1,237 @@
+---
+layout: base.njk
+title: Dentistry Workforce Survey 2026 — Consilium
+description: Help build the first comprehensive evidence base for Nigeria's dental workforce. Commissioned by APDPN, conducted by Consilium.
+activePage: 
+permalinkPath: dentalsurvey26.html
+permalink: dentalsurvey26.html
+---
+<style>
+:root {
+      --blue:#3D35EB; --blue-deep:#2D28C8; --ink:#123184; --ink-light:#2CB1F4;
+      --lime:#C8F5A0; --grey-bg:#F4F4F8; --grey-border:#E0E0E8;
+      --white:#ffffff; --body-sec:#4A4A63; --r-card:16px; --r-pill:48px; --ease:0.22s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--grey-bg);-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Fraunces',serif;font-optical-sizing:auto;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+    .eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px;width:100%}
+    .eyebrow::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .eyebrow::after{content:'';flex:1;height:1px;background:currentColor;opacity:.18;display:block}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:14px 32px;border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;border:1.5px solid transparent;transition:background var(--ease),border-color var(--ease),color var(--ease);white-space:nowrap}
+    .btn-lime{background:var(--lime);color:var(--ink);border-color:var(--lime)}.btn-lime:hover{opacity:.88}
+    .btn-white{background:var(--white);color:var(--blue)}.btn-white:hover{background:var(--grey-bg)}
+    .btn-ghost-w{background:transparent;color:var(--white);border-color:rgba(255,255,255,.4)}.btn-ghost-w:hover{border-color:var(--white)}
+
+    /* Nav */
+    .nav-icon-primary{fill:#fff;transition:fill .3s ease}.nav-icon-secondary{fill:rgba(255,255,255,.65);transition:fill .3s ease}
+    nav{position:sticky;top:0;z-index:100;background:var(--blue);height:64px;display:flex;align-items:center;transition:background-color .35s ease}
+    nav[data-theme="light"]{background:var(--grey-bg)}
+    nav[data-theme="light"] .nav-logo{color:var(--ink)}
+    nav[data-theme="light"] .nav-icon-primary{fill:var(--ink)}
+    nav[data-theme="light"] .nav-icon-secondary{fill:var(--ink-light)}
+    nav[data-theme="light"] .nav-links a{color:rgba(18,48,132,.65)}
+    nav[data-theme="light"] .nav-cta{background:rgba(61,53,235,.08)!important;color:var(--blue)!important;border-color:rgba(61,53,235,.25)!important}
+    .nav-inner{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px);display:flex;align-items:center;justify-content:space-between;width:100%}
+    .nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:17px;font-weight:600;letter-spacing:-.3px;text-decoration:none;flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:clamp(16px,2.5vw,30px);list-style:none}
+    .nav-links a{color:rgba(255,255,255,.78);font-size:14px;font-weight:500;text-decoration:none;transition:color var(--ease);position:relative;display:inline-block}
+    .nav-links a::after{content:'';display:block;height:1.5px;background:var(--white);width:0;transition:width var(--ease)}
+    .nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}
+    .nav-cta{background:rgba(255,255,255,.15)!important;color:var(--white)!important;border:1px solid rgba(255,255,255,.3)!important;padding:8px 18px!important;border-radius:var(--r-pill)!important;font-weight:600!important}
+    .nav-cta::after{display:none!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--white)}
+    .mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:var(--blue-deep);padding:8px 24px 24px;z-index:99}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;color:rgba(255,255,255,.82);font-size:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none}
+
+    /* Hero */
+    .hero{background:var(--blue);padding:clamp(72px,10vw,120px) 0 clamp(64px,9vw,100px);position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;right:-80px;bottom:-120px;width:480px;height:534px;opacity:.06;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5OS41IDExMC44NiI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik01MzguNSw0NTYuNzF2MzMuODhINDk5LjdxMC0xOS45Mi0uMS0zOS44MmMwLTMuMTIsMC02LjIzLDAtOS4zNWExLjUzLDEuNTMsMCwwLDEsMi42Mi0xLjA5bDEwLjU0LDEwLjU1YTEuMjcsMS4yNywwLDAsMCwuODkuMzdINTMzQTUuNDYsNS40NiwwLDAsMSw1MzguNSw0NTYuNzFaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUwLjI1IC00MzkuODgpIi8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik01NDkuMyw1MDIuMDZsLTEwLjQxLDEwLjcyYTEuMTUsMS4xNSwwLDAsMC0uMTkuMjYsMS4yMiwxLjIyLDAsMCwwLS4xOC42NXYxOWE2LjE5LDYuMTksMCwwLDEtNi4xLDYuMjdINDk5LjY5VjQ5OS41NGwzOS0uMSw5LjUzLDBBMS41NiwxLjU2LDAsMCwxLDU0OS4zLDUwMi4wNloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTQ1MC4yNSw1MzMuN1Y0OTkuNDFoMzkuMjhxMCwyMC4xNi4xLDQwLjNjMCwzLjE2LDAsNi4zMSwwLDkuNDdhMS41NSwxLjU1LDAsMCwxLTIuNjUsMS4xTDQ3Ni4zMiw1MzkuNmExLjI2LDEuMjYsMCwwLDAtLjktLjM3SDQ1NS43OEE1LjU0LDUuNTQsMCwwLDEsNDUwLjI1LDUzMy43WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4yNSAtNDM5Ljg4KSIvPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNDUwLjYsNDg3LjY0bDguMi0xMC43YTEuMSwxLjEsMCwwLDAsLjE1LS4yNiwxLjUzLDEuNTMsMCwwLDAsLjE0LS42NHYtMTljMC0zLjQ2LDIuMTUtNi4yNyw0LjgtNi4yN2gyNS43NnYzOS4zNXEtMTUuMzYuMDYtMzAuNy4xbC03LjUsMEM0NTAuMzksNDkwLjMsNDQ5Ljg1LDQ4OC42Miw0NTAuNiw0ODcuNjRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUwLjI1IC00MzkuODgpIi8+PC9zdmc+");background-size:contain;background-repeat:no-repeat;pointer-events:none;z-index:0}
+    .hero .wrap{position:relative;z-index:1}
+    .hero-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+    .hero h1{font-size:clamp(38px,5.5vw,68px);font-variation-settings:"opsz" 72,"wght" 700;color:var(--white);margin-bottom:20px}
+    .hero-lead{font-size:clamp(15px,1.4vw,17px);color:rgba(255,255,255,.75);line-height:1.72;max-width:560px;margin-bottom:32px}
+    .hero-cta-group{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .hero-badge{text-align:right}
+    .hero-badge p{font-size:12px;font-weight:600;letter-spacing:.5px;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:6px}
+    .hero-badge .partner{font-family:'Fraunces',serif;font-size:18px;color:var(--lime);line-height:1.2;max-width:200px}
+
+    /* About section */
+    .about-section{background:var(--white);padding:clamp(64px,9vw,108px) 0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,96px);align-items:start}
+    .about-section h2{font-size:clamp(26px,3.2vw,40px);margin-bottom:20px}
+    .about-section p{font-size:15px;color:var(--body-sec);line-height:1.78;margin-bottom:16px}
+    .about-section p:last-child{margin-bottom:0}
+    .detail-card{background:var(--grey-bg);border-radius:var(--r-card);padding:32px;border:1px solid var(--grey-border)}
+    .detail-item{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:1px solid var(--grey-border)}
+    .detail-item:first-child{padding-top:0}
+    .detail-item:last-child{border-bottom:none;padding-bottom:0}
+    .detail-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--body-sec)}
+    .detail-value{font-size:15px;font-weight:600;color:var(--ink)}
+
+    /* Who section */
+    .who-section{background:var(--grey-bg);background-image:radial-gradient(circle,rgba(61,53,235,.07) 1.5px,transparent 1.5px);background-size:28px 28px;padding:clamp(64px,9vw,108px) 0}
+    .who-section h2{font-size:clamp(26px,3.2vw,40px);margin-bottom:12px}
+    .who-section .lead{font-size:clamp(15px,1.4vw,17px);color:var(--body-sec);margin-bottom:40px;max-width:560px}
+    .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}
+    .who-card{background:var(--white);border:1px solid var(--grey-border);border-radius:var(--r-card);padding:24px 28px}
+    .who-card h3{font-size:17px;margin-bottom:8px}
+    .who-card p{font-size:14px;color:var(--body-sec);line-height:1.6}
+    .who-not{background:rgba(61,53,235,.05);border:1px solid rgba(61,53,235,.12);border-radius:10px;padding:16px 20px;font-size:14px;color:var(--body-sec)}
+    .who-not strong{color:var(--ink)}
+
+    /* CTA section */
+    .cta-section{background:var(--blue);padding:clamp(72px,10vw,120px) 0;text-align:center}
+    .cta-section h2{font-size:clamp(30px,4vw,52px);color:var(--white);margin-bottom:16px}
+    .cta-section p{font-size:clamp(15px,1.4vw,17px);color:rgba(255,255,255,.72);margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.72}
+    .cta-meta{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:32px}
+    .cta-meta-item{font-size:13px;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:6px}
+    .cta-meta-item::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--lime);flex-shrink:0}
+
+    /* Footer */
+    footer{background:var(--blue);padding:clamp(48px,6vw,72px) 0 32px;border-top:1px solid rgba(255,255,255,.1)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer-copy{font-size:12px;color:rgba(255,255,255,.38)}
+    .footer-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:17px;font-weight:600;letter-spacing:-.3px;text-decoration:none}
+
+    @media(max-width:780px){
+      .hero-grid{grid-template-columns:1fr}.hero-badge{text-align:left}
+      .about-grid{grid-template-columns:1fr}
+      .who-grid{grid-template-columns:1fr 1fr}
+      .footer-bottom{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:580px){
+      .nav-links{display:none}.hamburger{display:flex}
+      .who-grid{grid-template-columns:1fr}
+      .cta-meta{flex-direction:column;align-items:center;gap:12px}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+
+<!-- HERO -->
+<section class="hero" data-nav-theme="dark">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--lime)">Dentistry Workforce Study 2026</p>
+        <h1>What does it mean to practise dentistry in Nigeria today?</h1>
+        <p class="hero-lead">Consilium, commissioned by the Association of Private Dental Practitioners in Nigeria (APDPN), is conducting the first large-scale workforce survey of Nigerian dentists. Your responses will shape policy, advocacy, and the future of dental practice in Nigeria.</p>
+        <div class="hero-cta-group">
+          <a href="https://forms.gle/oUTDGrBWU5debySw6" target="_blank" rel="noopener" class="btn btn-lime">Fill the survey →</a>
+          <span style="font-size:13px;color:rgba(255,255,255,.55)">Takes approximately 8–10 minutes</span>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <p>Commissioned by</p>
+        <p class="partner">Association of Private Dental Practitioners in Nigeria (APDPN)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about-section" data-nav-theme="light">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--blue)">Why this study matters</p>
+        <h2>Nigerian dentistry has no comprehensive workforce data.</h2>
+        <p>Decisions about dental education, regulation, remuneration, and practice policy are being made without reliable, current evidence. The workforce challenges Nigerian dentists face — from compensation to working conditions to the pressures that drive emigration — are poorly documented.</p>
+        <p>This study changes that. By capturing the direct experiences of practising dentists across Nigeria, the Dentistry Workforce Study 2026 will produce the first systematic evidence base for the profession — one that APDPN and other stakeholders can use to advocate effectively on your behalf.</p>
+        <p>The findings will be published as the <strong>Nigerian Dentistry Workforce Report 2026</strong>, freely available to all participants and the broader dental community.</p>
+      </div>
+      <div>
+        <div class="detail-card">
+          <div class="detail-item">
+            <span class="detail-label">Study title</span>
+            <span class="detail-value">Nigerian Dentistry Workforce Study 2026</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Commissioned by</span>
+            <span class="detail-value">Association of Private Dental Practitioners in Nigeria (APDPN)</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Conducted by</span>
+            <span class="detail-value">Consilium</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Time to complete</span>
+            <span class="detail-value">8–10 minutes</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Confidentiality</span>
+            <span class="detail-value">Responses are anonymous. No identifiable information is published.</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Report publication</span>
+            <span class="detail-value">2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHO SHOULD FILL -->
+<section class="who-section" data-nav-theme="light">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--blue)">Who should fill this survey</p>
+    <h2>This survey is for Nigerian dentists.</h2>
+    <p class="lead">If you hold a dental degree and are currently practising in Nigeria — in any setting — this survey is for you.</p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <h3>Private practice dentists</h3>
+        <p>Solo practitioners, partners, and employed dentists working in private dental clinics across Nigeria.</p>
+      </div>
+      <div class="who-card">
+        <h3>Public sector dentists</h3>
+        <p>Dentists working in government hospitals, teaching hospitals, and public health facilities at any level.</p>
+      </div>
+      <div class="who-card">
+        <h3>Academic and specialist dentists</h3>
+        <p>Consultant dental surgeons, lecturers, and dental specialists in any recognised specialty.</p>
+      </div>
+    </div>
+
+    <div class="who-not">
+      <strong>Note:</strong> This survey is specifically for qualified dentists (BDS, MDS, or equivalent). Dental therapists, dental nurses, dental technologists, and other dental auxiliaries are not the target respondents for this study.
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="cta-section" data-nav-theme="dark">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--lime);justify-content:center">Take part</p>
+    <h2>Your experience is the evidence.</h2>
+    <p>Every response strengthens the case for better conditions, better policy, and better advocacy for Nigerian dentists. The survey takes under ten minutes and your responses are fully anonymous.</p>
+    <a href="https://forms.gle/oUTDGrBWU5debySw6" target="_blank" rel="noopener" class="btn btn-lime">Fill the survey →</a>
+    <div class="cta-meta">
+      <span class="cta-meta-item">Anonymous responses</span>
+      <span class="cta-meta-item">8–10 minutes</span>
+      <span class="cta-meta-item">Results published in 2026</span>
+      <span class="cta-meta-item">Open to all practising Nigerian dentists</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+
+<script>
+const navEl = document.getElementById('main-nav');
+  const themed = document.querySelectorAll('[data-nav-theme]');
+  function updateNav(){themed.forEach(s=>{const r=s.getBoundingClientRect();if(r.top<=64&&r.bottom>64)navEl.setAttribute('data-theme',s.dataset.navTheme)});}
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
+</script>

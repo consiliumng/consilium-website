@@ -1,0 +1,366 @@
+---
+pagination:
+  data: collections.reports
+  size: 1
+  alias: report
+permalink: "reports/{{ report.data.slug }}/index.html"
+layout: base.njk
+eleventyComputed:
+  title: "{{ report.data.title }} — Consilium"
+  description: "{{ report.data.description }}"
+  activePage: reports
+  permalinkPath: "reports/{{ report.data.slug }}/"
+---
+{% set r = report.data %}
+{% set authorList = r.authors | resolveAuthors(collections.authors) %}
+{% set relatedReports = collections.reports | reject("equalto", report) %}
+
+<style>
+:root{--blue:#3D35EB;--blue-deep:#2D28C8;--ink:#123184;--ink-light:#2CB1F4;--lime:#C8F5A0;--grey-bg:#F4F4F8;--grey-border:#E0E0E8;--white:#ffffff;--body-sec:#4A4A63;--r-card:16px;--r-pill:48px;--ease:0.22s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--grey-bg);background-image:radial-gradient(circle, rgba(61,53,235,0.07) 1.5px, transparent 1.5px);background-size:28px 28px;-webkit-font-smoothing:antialiased}
+.toc-box{background:#fff;border:1px solid var(--grey-border);border-radius:var(--r-card);padding:28px}
+.toc-box-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.toc-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--grey-bg);font-size:14px}
+.toc-row:last-child{border-bottom:none}
+.toc-page{font-size:13px;color:var(--body-sec)}
+.preview-figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.preview-figure-img{background:#fff;border-radius:12px;height:220px;object-fit:cover;width:100%;display:block}
+.preview-figure-caption{font-size:12px;color:var(--body-sec);margin-top:8px}
+@media (max-width:860px){.preview-figures{grid-template-columns:1fr}}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-optical-sizing:auto;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+.eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px;width:100%}
+.eyebrow::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.eyebrow::after{content:'';flex:1;height:1px;background:currentColor;opacity:.18;display:block}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;border:1.5px solid transparent;transition:background var(--ease),border-color var(--ease),color var(--ease);white-space:nowrap}
+.btn-white{background:var(--white);color:var(--blue);border-color:var(--white)}.btn-white:hover{background:var(--grey-bg)}
+.btn-blue{background:var(--blue);color:var(--white);border-color:var(--blue)}.btn-blue:hover{background:var(--blue-deep)}
+.btn-ghost-w{background:transparent;color:var(--white);border-color:rgba(255,255,255,.4)}.btn-ghost-w:hover{border-color:var(--white)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--grey-border)}.btn-ghost:hover{border-color:var(--blue-deep);color:var(--blue-deep)}
+.nav-icon-primary{fill:#fff;transition:fill .3s ease}.nav-icon-secondary{fill:rgba(255,255,255,.65);transition:fill .3s ease}
+nav{position:sticky;top:0;z-index:100;background:var(--blue);height:64px;display:flex;align-items:center;transition:background-color .35s ease}
+nav[data-theme="light"]{background:var(--grey-bg)}
+nav[data-theme="light"] .nav-logo{color:var(--ink)}
+nav[data-theme="light"] .nav-icon-primary{fill:var(--ink)}
+nav[data-theme="light"] .nav-icon-secondary{fill:var(--ink-light)}
+nav[data-theme="light"] .nav-links a{color:rgba(18,48,132,.65)}
+nav[data-theme="light"] .nav-links a::after{background:var(--ink)}
+nav[data-theme="light"] .nav-links a:hover{color:var(--ink)}
+nav[data-theme="light"] .nav-cta{background:rgba(61,53,235,.08)!important;color:var(--blue)!important;border-color:rgba(61,53,235,.25)!important}
+nav[data-theme="light"] .hamburger span{background:var(--ink)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px);display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:17px;font-weight:600;letter-spacing:-.3px;text-decoration:none;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:clamp(16px,2.5vw,30px);list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);font-size:14px;font-weight:500;text-decoration:none;transition:color var(--ease);position:relative;display:inline-block}
+.nav-links a::after{content:'';display:block;height:1.5px;background:var(--white);width:0;transition:width var(--ease)}
+.nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--white)!important}.nav-links a.active::after{width:100%}
+.nav-cta{background:rgba(255,255,255,.15)!important;color:var(--white)!important;border:1px solid rgba(255,255,255,.3)!important;padding:8px 18px!important;border-radius:var(--r-pill)!important;font-weight:600!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{width:22px;height:2px;background:#fff;transition:.3s}
+.mobile-menu{display:none}
+.breadcrumb{padding:16px 0;font-size:13px;color:var(--body-sec);background:var(--grey-bg)}
+.breadcrumb-inner{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.breadcrumb a:hover{color:var(--blue)}
+.breadcrumb .sep{opacity:.4}
+.breadcrumb .current{color:var(--ink);font-weight:500}
+.report-page{padding:48px 0 0}
+.report-layout{display:grid;grid-template-columns:320px 1fr;gap:56px;max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px) 56px}
+.report-sidebar{background:linear-gradient(160deg,var(--blue),var(--blue-deep));border-radius:var(--r-card);padding:32px;color:#fff;position:sticky;top:88px;height:fit-content;background-size:cover;background-position:center}
+.sidebar-year{font-size:12px;opacity:.7;letter-spacing:1px}
+.sidebar-title{font-family:'Fraunces',serif;font-size:24px;line-height:1.15;margin:8px 0 16px}
+.sidebar-rule{width:32px;height:2px;background:rgba(255,255,255,.4);margin-bottom:14px}
+.sidebar-tag{font-size:12px;opacity:.75}
+.sidebar-ctas{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.sidebar-ctas .btn{justify-content:center;width:100%}
+.report-main{min-width:0}
+.report-tag-chip{display:inline-block;background:rgba(61,53,235,.08);color:var(--blue);font-size:12px;font-weight:600;padding:6px 14px;border-radius:var(--r-pill);margin-bottom:16px}
+.report-main h1{font-size:clamp(28px,4vw,40px);margin-bottom:16px}
+.report-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:13px;color:var(--body-sec);margin-bottom:24px}
+.report-meta a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:rgba(18,49,132,.3);text-underline-offset:3px}
+.report-meta a:hover{text-decoration-color:var(--blue);color:var(--blue)}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:var(--body-sec);display:inline-block}
+.report-abstract{font-size:17px;color:var(--body-sec);max-width:640px;margin-bottom:32px}
+.report-abstract p{margin:0}
+.report-stats{display:flex;gap:32px;flex-wrap:wrap;margin-bottom:32px;padding:24px 0;border-top:1px solid var(--grey-border);border-bottom:1px solid var(--grey-border)}
+.report-stat-num{display:block;font-family:'Fraunces',serif;font-size:28px;color:var(--ink)}
+.report-stat-lbl{display:block;font-size:12px;color:var(--body-sec);margin-top:4px}
+.methodology-box{background:#fff;border:1px solid var(--grey-border);border-radius:12px;padding:20px 24px;font-size:13px;color:var(--body-sec);line-height:1.7}
+.methodology-box strong{display:block;color:var(--ink);font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.findings-section{background:#fff;padding:56px 0;margin-top:24px}
+.findings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:24px}
+.finding-card{background:var(--grey-bg);border-radius:14px;padding:24px}
+.finding-stat{display:block;font-family:'Fraunces',serif;font-size:32px;color:var(--blue)}
+.finding-label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin:6px 0 8px}
+.finding-desc{font-size:13px;color:var(--body-sec);line-height:1.6}
+.related-section{padding:56px 0}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:24px}
+.related-card{background:#fff;border:1px solid var(--grey-border);border-radius:var(--r-card);padding:24px;display:block;transition:border-color var(--ease)}
+.related-card:hover{border-color:var(--blue)}
+.related-chip{font-size:11px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+.related-card h3{font-size:17px;margin:10px 0 8px}
+.related-card p{font-size:13px;color:var(--body-sec);line-height:1.6;margin-bottom:12px}
+.related-link{font-size:13px;font-weight:600;color:var(--blue)}
+.newsletter{background:var(--ink);color:#fff;padding:56px 0}
+.nl-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.nl-inner h2{font-size:26px;margin-bottom:8px}
+.nl-inner p{font-size:14px;opacity:.75;max-width:420px}
+.nl-form{display:flex;gap:8px}
+.nl-input{padding:12px 16px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-family:inherit;font-size:14px;min-width:220px}
+.nl-input::placeholder{color:rgba(255,255,255,.5)}
+.nl-btn{padding:12px 22px;border-radius:var(--r-pill);border:none;background:#fff;color:var(--ink);font-weight:600;cursor:pointer;font-family:inherit;font-size:14px}
+.footer-tagline-block p{font-size:22px;font-family:'Fraunces',serif}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.4fr;gap:32px;margin-top:32px}
+.footer-col-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:.6;margin-bottom:12px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:13px;opacity:.85}
+.footer-nl-label{font-size:13px;opacity:.75;margin-bottom:10px}
+.footer-nl-form{display:flex;gap:6px}
+.footer-nl-input{flex:1;padding:9px 12px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:13px}
+.footer-nl-btn{padding:9px 16px;border-radius:var(--r-pill);border:none;background:#fff;color:var(--ink);font-weight:600;cursor:pointer}
+.footer-hr{border:none;border-top:1px solid rgba(255,255,255,.12);margin:32px 0 20px}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;opacity:.6}
+footer{background:var(--ink);color:#fff;padding:48px 0 32px}
+.footer-logo{display:flex;align-items:center;gap:8px;color:#fff;font-weight:600;margin-bottom:14px}
+@media (max-width:860px){
+  .report-layout{grid-template-columns:1fr}
+  .report-sidebar{position:static}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mobile-menu.open{display:flex;flex-direction:column;background:var(--blue);position:absolute;top:64px;left:0;right:0;padding:16px 20px;gap:14px}
+  .mobile-menu a{color:#fff;font-size:15px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+
+<div class="breadcrumb" data-nav-theme="light">
+  <div class="wrap">
+    <div class="breadcrumb-inner">
+      <a href="/">Home</a>
+      <span class="sep">&rsaquo;</span>
+      <a href="/reports/">Reports</a>
+      <span class="sep">&rsaquo;</span>
+      <span class="current">{{ r.title | truncate(40) }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="report-page" data-nav-theme="light" id="report-content">
+  <div class="report-layout">
+    <div class="report-sidebar" id="report-sidebar"{% if r.image_url %} style="background-image:url('{{ r.image_url }}');background-size:cover;background-position:center top"{% endif %}>
+      <div class="sidebar-content">
+        <span class="sidebar-year">{{ r.cover_year }}</span>
+        <div class="sidebar-title">{{ r.cover_label | safe }}</div>
+        <div class="sidebar-rule"></div>
+        <span class="sidebar-tag">{{ r.tag }}</span>
+      </div>
+      <div class="sidebar-ctas">
+        <a href="{{ r.primary_cta_url }}" class="btn btn-white">{{ r.primary_cta_text }}</a>
+        {% if r.has_download %}<button class="btn btn-ghost-w" onclick="openDownloadGate()">Download PDF</button>{% endif %}
+      </div>
+    </div>
+    <div class="report-main">
+      <span class="report-tag-chip">{{ r.tag }} · {{ r.published_date }}</span>
+      <h1>{{ r.title }}</h1>
+      <div class="report-meta"><span>Published {{ r.published_date }}</span>{% if authorList.length %}<span class="meta-dot"></span><span>By {% for au in authorList %}<a href="/authors/{{ au.slug }}/">{{ au.name }}</a>{% if not loop.last %}{% if loop.revindex == 2 %} and {% else %}, {% endif %}{% endif %}{% endfor %}</span>{% else %}<span class="meta-dot"></span><span>Consilium Research</span>{% endif %}{% if r.data_source %}<span class="meta-dot"></span><span>{{ r.data_source }}</span>{% endif %}</div>
+      <div class="report-abstract">{{ report.templateContent | safe }}</div>
+      {% if r.stat1_num or r.stat2_num or r.stat3_num %}
+      <div class="report-stats">
+        {% if r.stat1_num %}<div><span class="report-stat-num">{{ r.stat1_num }}</span><span class="report-stat-lbl">{{ r.stat1_label }}</span></div>{% endif %}
+        {% if r.stat2_num %}<div><span class="report-stat-num">{{ r.stat2_num }}</span><span class="report-stat-lbl">{{ r.stat2_label }}</span></div>{% endif %}
+        {% if r.stat3_num %}<div><span class="report-stat-num">{{ r.stat3_num }}</span><span class="report-stat-lbl">{{ r.stat3_label }}</span></div>{% endif %}
+      </div>
+      {% endif %}
+      {% if r.toc and r.toc.length %}
+      <div class="toc-box">
+        <div class="toc-box-label">What's inside</div>
+        {% for item in r.toc %}
+        <div class="toc-row"><span>{{ item.section }}</span><span class="toc-page">{{ item.page }}</span></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if r.methodology %}
+      <div class="methodology-box" style="margin-top:24px"><strong>Methodology</strong>{{ r.methodology }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if r.preview_figures and r.preview_figures.length %}
+  <div class="wrap" style="padding-bottom:56px">
+    <p class="eyebrow" style="color:var(--blue)">A preview of the data</p>
+    <div class="preview-figures">
+      {% for fig in r.preview_figures %}
+      <figure style="margin:0">
+        <img class="preview-figure-img" src="{{ fig.image }}" alt="{{ fig.alt }}">
+        <figcaption class="preview-figure-caption">{{ fig.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if r.findings and r.findings.length %}
+  <div class="findings-section">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--blue)">Key findings</p>
+      <div class="findings-grid">
+        {% for f in r.findings %}
+        <div class="finding-card">
+          <span class="finding-stat">{{ f.stat }}</span>
+          <span class="finding-label">{{ f.label }}</span>
+          <p class="finding-desc">{{ f.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% if relatedReports.length %}
+<div class="related-section" data-nav-theme="light">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--blue)">More from Consilium</p>
+    <div class="related-grid">
+      {% for rel in relatedReports %}
+      <a href="/reports/{{ rel.data.slug }}/" class="related-card">
+        <span class="related-chip">{{ rel.data.tag }}</span>
+        <h3>{{ rel.data.title }}</h3>
+        <p>{{ rel.data.description }}</p>
+        <span class="related-link">View →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<section class="newsletter" data-nav-theme="dark" style="position:relative;overflow:hidden">
+  <div style="position:absolute;width:480px;height:534px;right:-80px;bottom:-120px;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5OS41IDExMC44NiI+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgZD0iTTUzOC41LDQ1Ni43MXYzMy44OEg0OTkuN3EwLTE5LjkyLS4xLTM5LjgyYzAtMy4xMiwwLTYuMjMsMC05LjM1YTEuNTMsMS41MywwLDAsMSwyLjYyLTEuMDlsMTAuNTQsMTAuNTVhMS4yNywxLjI3LDAsMCwwLC44OS4zN0g1MzNBNS40Niw1LjQ2LDAsMCwxLDUzOC41LDQ1Ni43MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48cGF0aCBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIiBkPSJNNTQ5LjMsNTAyLjA2bC0xMC40MSwxMC43MmExLjE1LDEuMTUsMCwwLDAtLjE5LjI2LDEuMjIsMS4yMiwwLDAsMC0uMTguNjV2MTlhNi4xOSw2LjE5LDAsMCwxLTYuMSw2LjI3SDQ5OS42OVY0OTkuNTRsMzktLjEsOS41MywwQTEuNTYsMS41NiwwLDAsMSw1NDkuMyw1MDIuMDZaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUwLjI1IC00MzkuODgpIi8+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgZD0iTTQ1MC4yNSw1MzMuN1Y0OTkuNDFoMzkuMjhxMCwyMC4xNi4xLDQwLjNjMCwzLjE2LDAsNi4zMSwwLDkuNDdhMS41NSwxLjU1LDAsMCwxLTIuNjUsMS4xTDQ3Ni4zMiw1MzkuNmExLjI2LDEuMjYsMCwwLDAtLjktLjM3SDQ1NS43OEE1LjU0LDUuNTQsMCwwLDEsNDUwLjI1LDUzMy43WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4yNSAtNDM5Ljg4KSIvPjxwYXRoIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiIGQ9Ik00NTAuNiw0ODcuNjRsOC4yLTEwLjdhMS4xLDEuMSwwLDAsMCwuMTUtLjI2LDEuNTMsMS41MywwLDAsMCwuMTQtLjY0di0xOWMwLTMuNDYsMi4xNS02LjI3LDQuOC02LjI3aDI1Ljc2djM5LjM1cS0xNS4zNi4wNi0zMC43LjFsLTcuNSwwQzQ1MC4zOSw0OTAuMyw0NDkuODUsNDg4LjYyLDQ1MC42LDQ4Ny42NFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48L3N2Zz4=');background-size:contain;background-repeat:no-repeat;pointer-events:none;z-index:0"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="nl-inner">
+      <div>
+        <h2>Get the newsletter</h2>
+        <p>Analysis on Nigeria's health system — finance, workforce, policy, and the forces shaping it. Free, and worth reading.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="return nlSubscribe(this)" method="post" target="_blank">
+          <input class="nl-input" type="email" name="email" placeholder="Your email address" required>
+          <button class="nl-btn" type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD GATE MODAL -->
+<div id="dl-overlay" style="display:none;position:fixed;inset:0;background:rgba(18,49,132,.72);z-index:200;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:20px;max-width:460px;width:100%;padding:clamp(28px,4vw,44px);position:relative">
+    <button onclick="closeDownloadGate()" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;font-size:20px;cursor:pointer;color:#4A4A63;line-height:1">✕</button>
+    <div id="dl-form-wrap">
+      <p style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#3D35EB;margin-bottom:14px">Download report</p>
+      <h3 style="font-family:'Fraunces',serif;font-size:20px;color:#123184;margin-bottom:6px">{{ r.title }}</h3>
+      <p style="font-size:13px;color:#4A4A63;margin-bottom:24px">Enter your details and we'll send the PDF link to your inbox.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <div><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#4A4A63;margin-bottom:6px">Full name *</label>
+        <input id="dl-name" type="text" placeholder="Dr. Amaka Okonkwo" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
+        <div><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#4A4A63;margin-bottom:6px">Email *</label>
+        <input id="dl-email" type="email" placeholder="you@org.com" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
+      </div>
+      <div style="margin-bottom:20px"><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#4A4A63;margin-bottom:6px">Organisation <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input id="dl-org" type="text" placeholder="Ministry / Firm / University" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#4A4A63;margin-bottom:20px;cursor:pointer">
+        <input type="checkbox" id="dl-nl" style="width:auto">
+        Also subscribe me to the Consilium newsletter
+      </label>
+      <div id="dl-error" style="display:none;font-size:13px;color:#c0392b;padding:10px 14px;background:rgba(192,57,43,.07);border-radius:8px;margin-bottom:16px"></div>
+      <button id="dl-btn" onclick="submitDownload()" style="width:100%;padding:13px 24px;background:#3D35EB;color:#fff;border:none;border-radius:48px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer">Send me the report →</button>
+      <p style="font-size:12px;color:#4A4A63;text-align:center;margin-top:12px">We will never share your email. Unsubscribe any time.</p>
+    </div>
+    <div id="dl-success" style="display:none;text-align:center;padding:16px 0">
+      <div style="width:52px;height:52px;background:rgba(61,53,235,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px">✓</div>
+      <h3 style="font-family:'Fraunces',serif;font-size:20px;color:#123184;margin-bottom:8px">Check your inbox</h3>
+      <p style="font-size:14px;color:#4A4A63;line-height:1.65">The download link has been sent to <strong id="dl-success-email"></strong>. Check your spam folder if it doesn't arrive within a few minutes.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const navEl=document.getElementById('main-nav');
+const themed=document.querySelectorAll('[data-nav-theme]');
+function updateNav(){themed.forEach(s=>{const r=s.getBoundingClientRect();if(r.top<=64&&r.bottom>64)navEl.setAttribute('data-theme',s.dataset.navTheme)});}
+window.addEventListener('scroll',updateNav,{passive:true});
+updateNav();
+
+// ============================================================
+// DOWNLOAD GATE — posts to the Apps Script endpoint, same as before
+// ============================================================
+const PARTNERSHIP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwi7mjGvwj7y1S41d5wyqNu5Y03uicBWc8IOaSMm3Guix78-s4wy17yF5FU8CUik63F/exec';
+const REPORT_SLUG = "{{ r.slug }}";
+const REPORT_PDF_URL = "{{ r.pdf_file }}" ? "https://consilium.ng{{ r.pdf_file }}" : "";
+
+function openDownloadGate() {
+  document.getElementById('dl-overlay').style.display = 'flex';
+  document.getElementById('dl-error').style.display = 'none';
+  document.getElementById('dl-form-wrap').style.display = 'block';
+  document.getElementById('dl-success').style.display = 'none';
+  document.body.style.overflow = 'hidden';
+}
+function closeDownloadGate() {
+  document.getElementById('dl-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('dl-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeDownloadGate();
+});
+
+async function submitDownload() {
+  const name  = document.getElementById('dl-name').value.trim();
+  const email = document.getElementById('dl-email').value.trim();
+  const org   = document.getElementById('dl-org').value.trim();
+  const nl    = document.getElementById('dl-nl').checked;
+
+  if (!name || !email) {
+    const errEl = document.getElementById('dl-error');
+    errEl.textContent = 'Please enter both your name and work email address.';
+    errEl.style.display = 'block';
+    return;
+  }
+  const btn = document.getElementById('dl-btn');
+  btn.textContent = 'Preparing your link…';
+  btn.disabled = true;
+  try {
+    await fetch(PARTNERSHIP_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({
+        type: 'download', report: REPORT_SLUG, report_title: "{{ r.title }}", pdf_url: REPORT_PDF_URL, name: name, email: email,
+        organisation: org, newsletter: nl ? 'yes' : 'no'
+      })
+    });
+    if (nl) {
+      fetch('https://consilium.substack.com/api/v1/free', {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+    }
+    document.getElementById('dl-success-email').textContent = email;
+    if (typeof gtag === 'function') {
+      gtag('event', 'report_download', { report_slug: REPORT_SLUG, report_title: "{{ r.title }}" });
+    }
+    document.getElementById('dl-form-wrap').style.display = 'none';
+    document.getElementById('dl-success').style.display = 'block';
+  } catch(err) {
+    btn.textContent = 'Send me the report →';
+    btn.disabled = false;
+    const errEl = document.getElementById('dl-error');
+    errEl.textContent = 'Connection error. Please contact office@consilium.ng directly.';
+    errEl.style.display = 'block';
+  }
+}
+</script>

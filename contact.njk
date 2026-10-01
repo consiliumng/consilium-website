@@ -1,0 +1,318 @@
+---
+layout: base.njk
+title: Work with Consilium — Nigerian Health Systems Intelligence
+description: Partner with Consilium on primary research, advisory engagements, and data licensing for Nigerian healthcare.
+activePage: contact
+permalinkPath: contact.html
+permalink: contact.html
+---
+<style>
+:root {
+      --blue:#3D35EB; --blue-deep:#2D28C8; --ink:#123184; --ink-light:#2CB1F4;
+      --lime:#C8F5A0; --grey-bg:#F4F4F8; --grey-border:#E0E0E8;
+      --white:#ffffff; --body-sec:#4A4A63; --r-card:16px; --r-pill:48px; --ease:0.22s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--grey-bg);-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Fraunces',serif;font-optical-sizing:auto;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+    .eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px;width:100%}
+    .eyebrow::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .eyebrow::after{content:'';flex:1;height:1px;background:currentColor;opacity:.18;display:block}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;border:1.5px solid transparent;transition:background var(--ease),border-color var(--ease),color var(--ease);white-space:nowrap}
+    .btn-blue{background:var(--blue);color:var(--white);border-color:var(--blue)}.btn-blue:hover{background:var(--blue-deep)}
+    .btn-white{background:var(--white);color:var(--blue)}.btn-white:hover{background:var(--grey-bg)}
+
+    /* Nav */
+    .nav-icon-primary{fill:#fff;transition:fill .3s ease}.nav-icon-secondary{fill:rgba(255,255,255,.65);transition:fill .3s ease}
+    nav{position:sticky;top:0;z-index:100;background:var(--blue);height:64px;display:flex;align-items:center;transition:background-color .35s ease}
+    nav[data-theme="light"]{background:var(--grey-bg)}
+    nav[data-theme="light"] .nav-logo{color:var(--ink)}
+    nav[data-theme="light"] .nav-icon-primary{fill:var(--ink)}
+    nav[data-theme="light"] .nav-icon-secondary{fill:var(--ink-light)}
+    nav[data-theme="light"] .nav-links a{color:rgba(18,48,132,.65)}
+    nav[data-theme="light"] .nav-links a::after{background:var(--ink)}
+    nav[data-theme="light"] .nav-links a:hover{color:var(--ink)}
+    nav[data-theme="light"] .nav-cta{background:rgba(61,53,235,.08)!important;color:var(--blue)!important;border-color:rgba(61,53,235,.25)!important}
+    nav[data-theme="light"] .hamburger span{background:var(--ink)}
+    .nav-inner{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px);display:flex;align-items:center;justify-content:space-between;width:100%}
+    .nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:17px;font-weight:600;letter-spacing:-.3px;text-decoration:none;flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:clamp(16px,2.5vw,30px);list-style:none}
+    .nav-links a{color:rgba(255,255,255,.78);font-size:14px;font-weight:500;text-decoration:none;transition:color var(--ease);position:relative;display:inline-block}
+    .nav-links a::after{content:'';display:block;height:1.5px;background:var(--white);width:0;transition:width var(--ease)}
+    .nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}
+    .nav-links a.active{color:var(--white)!important}.nav-links a.active::after{width:100%}
+    .nav-cta{background:rgba(255,255,255,.15)!important;color:var(--white)!important;border:1px solid rgba(255,255,255,.3)!important;padding:8px 18px!important;border-radius:var(--r-pill)!important;font-weight:600!important}
+    .nav-cta::after{display:none!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--white)}
+    .mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:var(--blue-deep);padding:8px 24px 24px;z-index:99}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;color:rgba(255,255,255,.82);font-size:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none}
+
+    /* Hero */
+    .hero{background:var(--blue);padding:clamp(72px,10vw,120px) 0 clamp(64px,9vw,100px);position:relative;overflow:hidden}
+    .hero::after{content:'';position:absolute;right:-80px;bottom:-120px;width:480px;height:534px;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5OS41IDExMC44NiI+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgZD0iTTUzOC41LDQ1Ni43MXYzMy44OEg0OTkuN3EwLTE5LjkyLS4xLTM5LjgyYzAtMy4xMiwwLTYuMjMsMC05LjM1YTEuNTMsMS41MywwLDAsMSwyLjYyLTEuMDlsMTAuNTQsMTAuNTVhMS4yNywxLjI3LDAsMCwwLC44OS4zN0g1MzNBNS40Niw1LjQ2LDAsMCwxLDUzOC41LDQ1Ni43MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48cGF0aCBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIiBkPSJNNTQ5LjMsNTAyLjA2bC0xMC40MSwxMC43MmExLjE1LDEuMTUsMCwwLDAtLjE5LjI2LDEuMjIsMS4yMiwwLDAsMC0uMTguNjV2MTlhNi4xOSw2LjE5LDAsMCwxLTYuMSw2LjI3SDQ5OS42OVY0OTkuNTRsMzktLjEsOS41MywwQTEuNTYsMS41NiwwLDAsMSw1NDkuMyw1MDIuMDZaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUwLjI1IC00MzkuODgpIi8+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgZD0iTTQ1MC4yNSw1MzMuN1Y0OTkuNDFoMzkuMjhxMCwyMC4xNi4xLDQwLjNjMCwzLjE2LDAsNi4zMSwwLDkuNDdhMS41NSwxLjU1LDAsMCwxLTIuNjUsMS4xTDQ3Ni4zMiw1MzkuNmExLjI2LDEuMjYsMCwwLDAtLjktLjM3SDQ1NS43OEE1LjU0LDUuNTQsMCwwLDEsNDUwLjI1LDUzMy43WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4yNSAtNDM5Ljg4KSIvPjxwYXRoIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiIGQ9Ik00NTAuNiw0ODcuNjRsOC4yLTEwLjdhMS4xLDEuMSwwLDAsMCwuMTUtLjI2LDEuNTMsMS41MywwLDAsMCwuMTQtLjY0di0xOWMwLTMuNDYsMi4xNS02LjI3LDQuOC02LjI3aDI1Ljc2djM5LjM1cS0xNS4zNi4wNi0zMC43LjFsLTcuNSwwQzQ1MC4zOSw0OTAuMyw0NDkuODUsNDg4LjYyLDQ1MC42LDQ4Ny42NFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48L3N2Zz4=");background-size:contain;background-repeat:no-repeat;pointer-events:none;z-index:0}
+    .hero .wrap{position:relative;z-index:1}
+    .hero h1{font-size:clamp(40px,6vw,72px);font-variation-settings:"opsz" 72,"wght" 700;color:var(--white);margin-bottom:16px;max-width:640px}
+    .hero-lead{font-size:clamp(15px,1.4vw,17px);color:rgba(255,255,255,.72);line-height:1.72;max-width:520px}
+
+    /* Page body */
+    .page-body{background:var(--grey-bg);background-image:radial-gradient(circle,rgba(61,53,235,.07) 1.5px,transparent 1.5px);background-size:28px 28px;padding:clamp(64px,9vw,108px) 0}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(48px,7vw,100px);align-items:start}
+
+    /* Left column — context */
+    .contact-info h2{font-size:clamp(22px,2.5vw,30px);margin-bottom:16px}
+    .contact-info p{font-size:15px;color:var(--body-sec);line-height:1.75;margin-bottom:24px}
+    .modes{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--grey-border);margin-bottom:32px}
+    .mode{padding:18px 0;border-bottom:1px solid var(--grey-border)}
+    .mode-name{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+    .mode-desc{font-size:14px;color:var(--body-sec);line-height:1.6}
+    .contact-direct{font-size:14px;color:var(--body-sec)}
+    .contact-direct a{color:var(--blue);font-weight:600}
+    .contact-direct a:hover{text-decoration:underline}
+
+    /* Form card */
+    .form-card{background:var(--white);border:1px solid var(--grey-border);border-radius:var(--r-card);padding:clamp(32px,4vw,48px);position:sticky;top:84px}
+
+    /* Form fields */
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{margin-bottom:20px}
+    .field:last-of-type{margin-bottom:0}
+    .field label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--body-sec);margin-bottom:7px}
+    .field input,.field select,.field textarea{width:100%;padding:12px 16px;border:1.5px solid var(--grey-border);border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;color:var(--ink);background:var(--white);transition:border-color var(--ease),box-shadow var(--ease);outline:none;appearance:none;-webkit-appearance:none}
+    .field input::placeholder,.field textarea::placeholder{color:rgba(74,74,99,.4)}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(61,53,235,.1)}
+    .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234A4A63' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer}
+    .field textarea{min-height:120px;resize:vertical;line-height:1.65}
+    .field-note{font-size:12px;color:var(--body-sec);margin-top:5px}
+
+    .form-divider{height:1px;background:var(--grey-border);margin:24px 0}
+
+    .submit-btn{width:100%;padding:14px 24px;background:var(--blue);color:var(--white);border:none;border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:background var(--ease);margin-top:24px}
+    .submit-btn:hover{background:var(--blue-deep)}
+    .submit-btn:disabled{opacity:.6;cursor:not-allowed}
+
+    /* States */
+    .form-success{display:none;text-align:center;padding:32px 0}
+    .form-success h3{font-size:22px;margin-bottom:10px}
+    .form-success p{font-size:15px;color:var(--body-sec);line-height:1.65}
+    .success-icon{width:56px;height:56px;background:rgba(61,53,235,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px}
+    .form-error{display:none;font-size:13px;color:#c0392b;margin-top:10px;padding:10px 14px;background:rgba(192,57,43,.07);border-radius:8px}
+
+    /* Footer */
+    footer{background:var(--blue);padding:clamp(56px,8vw,96px) 0 36px}
+    .footer-tagline-block{padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:clamp(48px,6vw,72px)}
+    .footer-tagline-block p{font-family:'Fraunces',serif;font-optical-sizing:auto;font-variation-settings:"opsz" 48,"wght" 700;font-size:clamp(26px,3.5vw,44px);color:var(--white);line-height:1.15;text-wrap:balance;max-width:640px}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:clamp(48px,6vw,72px)}
+    .footer-brand p{font-size:14px;color:rgba(255,255,255,.58);line-height:1.68;margin-top:14px;max-width:240px}
+    .footer-col-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:14px;color:rgba(255,255,255,.68);display:inline-block;transition:color var(--ease)}
+    .footer-links a:hover{color:var(--white)}
+    .footer-nl-label{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;line-height:1.5}
+    .footer-nl-form{display:flex;gap:8px}
+    .footer-nl-input{flex:1;height:38px;padding:0 14px;border:1px solid rgba(255,255,255,.2);border-radius:var(--r-pill);background:rgba(255,255,255,.07);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;outline:none}
+    .footer-nl-btn{height:38px;padding:0 14px;background:rgba(255,255,255,.14);color:var(--white);border:1px solid rgba(255,255,255,.28);border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer}
+    .footer-hr{border:none;border-top:1px solid rgba(255,255,255,.14);margin-bottom:24px}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer-copy,.footer-method{font-size:12px;color:rgba(255,255,255,.38)}
+    .footer-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:17px;font-weight:600;letter-spacing:-.3px;text-decoration:none}
+
+    @media(max-width:780px){.contact-grid{grid-template-columns:1fr}.form-card{position:static}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:span 2}}
+    @media(max-width:580px){.nav-links{display:none}.hamburger{display:flex}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+
+<section class="hero" data-nav-theme="dark">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--lime)">Work with Consilium</p>
+    <h1>Commission intelligence that moves decisions.</h1>
+    <p class="hero-lead">We work with government agencies, development finance institutions, health sector investors, and international organisations. Tell us what you need.</p>
+  </div>
+</section>
+
+
+<div class="page-body" data-nav-theme="light">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- Left — context -->
+      <div class="contact-info">
+        <p class="eyebrow" style="color:var(--blue)">Three ways to engage</p>
+        <h2>What kind of partnership are you looking for?</h2>
+        <p>We take on a small number of external engagements each year to protect the quality of our research. Describe your project below and we will respond within three working days.</p>
+
+        <div class="modes">
+          <div class="mode">
+            <p class="mode-name">Research Partnerships</p>
+            <p class="mode-desc">Commission a primary study or extend our existing research agenda to answer a specific policy or investment question — with full methodological rigour and data transparency.</p>
+          </div>
+          <div class="mode">
+            <p class="mode-name">Advisory Engagements</p>
+            <p class="mode-desc">Translate existing data into actionable intelligence — for a board presentation, funding proposal, sector entry assessment, or policy brief. Short, defined timelines.</p>
+          </div>
+          <div class="mode">
+            <p class="mode-name">Data & Intelligence Licensing</p>
+            <p class="mode-desc">Access Consilium's proprietary datasets for internal analysis, research reproduction, or product development. Terms available on request.</p>
+          </div>
+        </div>
+
+        <p class="contact-direct">Prefer to write directly? Email us at <a href="mailto:office@consilium.ng">office@consilium.ng</a></p>
+      </div>
+
+      <!-- Right — form -->
+      <div class="form-card">
+
+        <!-- Form -->
+        <div id="enquiry-form">
+          <h3 style="font-size:20px;margin-bottom:24px">Enquiry details</h3>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Full name *</label>
+              <input type="text" id="f-name" placeholder="Dr. Amaka Okonkwo" required>
+            </div>
+            <div class="field">
+              <label for="f-email">Work email *</label>
+              <input type="email" id="f-email" placeholder="amaka@organisation.org" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-org">Organisation *</label>
+            <input type="text" id="f-org" placeholder="Ministry of Health / World Bank / etc." required>
+          </div>
+
+          <div class="field">
+            <label for="f-type">Type of engagement *</label>
+            <select id="f-type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Research Partnership">Research Partnership</option>
+              <option value="Advisory Engagement">Advisory Engagement</option>
+              <option value="Data & Intelligence Licensing">Data & Intelligence Licensing</option>
+              <option value="Media / Press">Media / Press</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-desc">Project description *</label>
+            <textarea id="f-desc" placeholder="Briefly describe what you are trying to understand or accomplish and any relevant timelines or constraints." required></textarea>
+            <p class="field-note">We review every submission personally. The more context you provide, the more useful our response will be.</p>
+          </div>
+
+          <div class="form-divider"></div>
+
+          <div class="field">
+            <label for="f-newsletter">
+              <input type="checkbox" id="f-newsletter" style="width:auto;margin-right:8px;vertical-align:middle">
+              Also subscribe me to the Consilium newsletter
+            </label>
+          </div>
+
+          <div class="form-error" id="form-error">Something went wrong. Please try again or email us directly at office@consilium.ng</div>
+
+          <button class="submit-btn" id="submit-btn" onclick="submitForm()">Send enquiry →</button>
+        </div>
+
+        <!-- Success state -->
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✓</div>
+          <h3>Enquiry received</h3>
+          <p>We will review your submission and respond to <strong id="success-email"></strong> within three working days.</p>
+          <p style="margin-top:12px;font-size:13px">In the meantime, you can browse our <a href="/reports/" style="color:var(--blue);font-weight:600">published reports</a> or read our <a href="/articles/" style="color:var(--blue);font-weight:600">articles</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+  // PARTNERSHIP FORM
+  // Replace the URL below with your deployed Apps Script web app URL
+  // ============================================================
+  const PARTNERSHIP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwi7mjGvwj7y1S41d5wyqNu5Y03uicBWc8IOaSMm3Guix78-s4wy17yF5FU8CUik63F/exec';
+
+  async function submitForm() {
+    const name  = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const org   = document.getElementById('f-org').value.trim();
+    const type  = document.getElementById('f-type').value;
+    const desc  = document.getElementById('f-desc').value.trim();
+    const nl    = document.getElementById('f-newsletter').checked;
+
+    // Highlight missing fields individually
+    const fields = [
+      { val: name,  id: 'f-name',  label: 'Full name' },
+      { val: email, id: 'f-email', label: 'Work email' },
+      { val: org,   id: 'f-org',   label: 'Organisation' },
+      { val: type,  id: 'f-type',  label: 'Engagement type' },
+      { val: desc,  id: 'f-desc',  label: 'Project description' },
+    ];
+    const missing = fields.filter(f => !f.val);
+    if (missing.length) {
+      const errEl = document.getElementById('form-error');
+      errEl.textContent = 'Please fill in: ' + missing.map(f => f.label).join(', ');
+      errEl.style.display = 'block';
+      errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById(missing[0].id).focus();
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    document.getElementById('form-error').style.display = 'none';
+
+    try {
+      await fetch(PARTNERSHIP_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          type: 'partnership',
+          name: name,
+          email: email,
+          organisation: org,
+          engagement_type: type,
+          description: desc,
+          newsletter: nl ? 'yes' : 'no'
+        })
+      });
+
+      if (nl) {
+        fetch('https://consilium.substack.com/api/v1/free', {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+      }
+
+      document.getElementById('success-email').textContent = email;
+      document.getElementById('enquiry-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    } catch (err) {
+      btn.textContent = 'Send enquiry →';
+      btn.disabled = false;
+      const errEl = document.getElementById('form-error');
+      errEl.textContent = 'Something went wrong — please email us at office@consilium.ng';
+      errEl.style.display = 'block';
+      errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // Dynamic nav theme
+  const navEl = document.getElementById('main-nav');
+  const themed = document.querySelectorAll('[data-nav-theme]');
+  function updateNav() { themed.forEach(s => { const r = s.getBoundingClientRect(); if (r.top <= 64 && r.bottom > 64) navEl.setAttribute('data-theme', s.dataset.navTheme); }); }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
+</script>

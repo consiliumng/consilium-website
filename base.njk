@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Consilium">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ ogImage or 'https://consilium.ng/og-image.png' }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://consilium.ng/{{ permalinkPath }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ ogImage or 'https://consilium.ng/og-image.png' }}">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5OS41IDExMC44NiI+PGRlZnM+PHN0eWxlPi5he2ZpbGw6IzJjYjFmNH0uYntmaWxsOiMxMjMwODR9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik01MzguNSA0NTYuNzF2MzMuODhINDk5LjdxMC0xOS45Mi0uMS0zOS44MmMwLTMuMTIgMC02LjIzIDAtOS4zNWExLjUzIDEuNTMgMCAwIDEgMi42Mi0xLjA5bDEwLjU0IDEwLjU1YTEuMjcgMS4yNyAwIDAgMCAuODkuMzdINTMzYTUuNDYgNS40NiAwIDAgMSA1LjUgNS40NnoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48cGF0aCBjbGFzcz0iYiIgZD0iTTU0OS4zIDUwMi4wNmwtMTAuNDEgMTAuNzJhMS4xNSAxLjE1IDAgMCAwLS4xOS4yNiAxLjIyIDEuMjIgMCAwIDAtLjE4LjY1djE5YTYuMTkgNi4xOSAwIDAgMS02LjEgNi4yN0g0OTkuNjlWNDk5LjU0bDM5LS4xIDkuNTMgMGExLjU2IDEuNTYgMCAwIDEgMS4wOCAyLjYyeiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4yNSAtNDM5Ljg4KSIvPjxwYXRoIGNsYXNzPSJhIiBkPSJNNDUwLjI1IDUzMy43VjQ5OS40MWgzOS4yOHEwIDIwLjE2LjEgNDAuM2MwIDMuMTYgMCA2LjMxIDAgOS40N2ExLjU1IDEuNTUgMCAwIDEtMi42NSAxLjFMNDc2LjMyIDUzOS42YTEuMjYgMS4yNiAwIDAgMC0uOS0uMzdINDU1Ljc4YTUuNTQgNS41NCAwIDAgMS01LjUzLTUuNTN6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUwLjI1IC00MzkuODgpIi8+PHBhdGggY2xhc3M9ImIiIGQ9Ik00NTAuNiA0ODcuNjRsOC4yLTEwLjdhMS4xIDEuMSAwIDAgMCAuMTUtLjI2IDEuNTMgMS41MyAwIDAgMCAuMTQtLjY0di0xOWMwLTMuNDYgMi4xNS02LjI3IDQuOC02LjI3aDI1Ljc2djM5LjM1cS0xNS4zNi4wNi0zMC43LjFsLTcuNSAwYy0xLjQ2LS4xLTItMS43OC0xLjI1LTIuNzZ6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUwLjI1IC00MzkuODgpIi8+PC9zdmc+">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=Plus+Jakarta+Sans:wght@400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function (user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function () {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VVY7VZZE79"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VVY7VZZE79');
+</script>
+</head>
+
+
+<body>
+
+<nav id="main-nav" data-nav-theme="dark">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg height="36" viewBox="0 0 99.5 110.86" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="nav-icon-secondary" d="M538.5,456.71v33.88H499.7q0-19.92-.1-39.82c0-3.12,0-6.23,0-9.35a1.53,1.53,0,0,1,2.62-1.09l10.54,10.55a1.27,1.27,0,0,0,.89.37H533A5.46,5.46,0,0,1,538.5,456.71Z" transform="translate(-450.25 -439.88)"/>
+        <path class="nav-icon-primary" d="M549.3,502.06l-10.41,10.72a1.15,1.15,0,0,0-.19.26,1.22,1.22,0,0,0-.18.65v19a6.19,6.19,0,0,1-6.1,6.27H499.69V499.54l39-.1,9.53,0A1.56,1.56,0,0,1,549.3,502.06Z" transform="translate(-450.25 -439.88)"/>
+        <path class="nav-icon-secondary" d="M450.25,533.7V499.41h39.28q0,20.16.1,40.3c0,3.16,0,6.31,0,9.47a1.55,1.55,0,0,1-2.65,1.1L476.32,539.6a1.26,1.26,0,0,0-.9-.37H455.78A5.54,5.54,0,0,1,450.25,533.7Z" transform="translate(-450.25 -439.88)"/>
+        <path class="nav-icon-primary" d="M450.6,487.64l8.2-10.7a1.1,1.1,0,0,0,.15-.26,1.53,1.53,0,0,0,.14-.64v-19c0-3.46,2.15-6.27,4.8-6.27h25.76v39.35q-15.36.06-30.7.1l-7.5,0C450.39,490.3,449.85,488.62,450.6,487.64Z" transform="translate(-450.25 -439.88)"/>
+      </svg>
+      Consilium
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#what-we-do">What we do</a></li>
+      <li><a href="/reports/"{% if activePage == 'reports' %} class="active"{% endif %}>Reports</a></li>
+      <li><a href="/articles/"{% if activePage == 'articles' %} class="active"{% endif %}>Articles</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/contact.html" class="nav-cta"{% if activePage == 'contact' %} style="text-decoration:underline"{% endif %}>Work with us →</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/#what-we-do">What we do</a>
+    <a href="/reports/">Reports</a>
+    <a href="/articles/">Articles</a>
+    <a href="/#about">About</a>
+    <a href="/contact.html">Work with us →</a>
+  </div>
+</nav>
+
+{{ content | safe }}
+
+<footer data-nav-theme="dark">
+  <div class="wrap">
+    <div class="footer-tagline-block">
+      <p>Evidence for better<br>healthcare decisions.</p>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          <svg height="28" viewBox="0 0 99.5 110.86" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="white" d="M549.3,502.06l-10.41,10.72a1.15,1.15,0,0,0-.19.26,1.22,1.22,0,0,0-.18.65v19a6.19,6.19,0,0,1-6.1,6.27H499.69V499.54l39-.1,9.53,0A1.56,1.56,0,0,1,549.3,502.06Z" transform="translate(-450.25 -439.88)"/>
+            <path fill="rgba(255,255,255,0.65)" d="M538.5,456.71v33.88H499.7q0-19.92-.1-39.82c0-3.12,0-6.23,0-9.35a1.53,1.53,0,0,1,2.62-1.09l10.54,10.55a1.27,1.27,0,0,0,.89.37H533A5.46,5.46,0,0,1,538.5,456.71Z" transform="translate(-450.25 -439.88)"/>
+            <path fill="rgba(255,255,255,0.65)" d="M450.25,533.7V499.41h39.28q0,20.16.1,40.3c0,3.16,0,6.31,0,9.47a1.55,1.55,0,0,1-2.65,1.1L476.32,539.6a1.26,1.26,0,0,0-.9-.37H455.78A5.54,5.54,0,0,1,450.25,533.7Z" transform="translate(-450.25 -439.88)"/>
+            <path fill="white" d="M450.6,487.64l8.2-10.7a1.1,1.1,0,0,0,.15-.26,1.53,1.53,0,0,0,.14-.64v-19c0-3.46,2.15-6.27,4.8-6.27h25.76v39.35q-15.36.06-30.7.1l-7.5,0C450.39,490.3,449.85,488.62,450.6,487.64Z" transform="translate(-450.25 -439.88)"/>
+          </svg>
+          Consilium
+        </a>
+        <p>Nigeria's health systems intelligence and advisory firm. Making sense of Nigerian healthcare in a way that actually matters.</p>
+      </div>
+      <div>
+        <p class="footer-col-label">Products</p>
+        <ul class="footer-links">
+          <li><a href="https://hcw25.consilium.ng">HCW Report 2025 ↗</a></li>
+          <li><a href="https://salarychecker.consilium.ng">HCW Pay Check ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-label">Stay informed</p>
+        <p class="footer-nl-label">The Consilium newsletter — Nigerian healthcare, in analysis.</p>
+        <form class="footer-nl-form" onsubmit="return nlSubscribe(this)">
+          <input class="footer-nl-input" type="email" name="email" placeholder="Email address" required>
+          <button class="footer-nl-btn" type="submit">→</button>
+        </form>
+      </div>
+    </div>
+    <hr class="footer-hr">
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Consilium · <a href="mailto:office@consilium.ng">office@consilium.ng</a> · <a href="https://consilium.substack.com">Substack</a></p>
+      <p class="footer-method">2025 HCW Survey · 537 respondents · 35 states + FCT · 6 cadres</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// SHARED BEHAVIOR — mobile nav toggle, newsletter footer form
+// ============================================================
+(function () {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+  }
+})();
+
+function nlSubscribe(form) {
+  // Browsers block a background (fetch) request to Substack from another
+  // site, so the old version never actually subscribed anyone. A normal
+  // form submission is allowed: it opens Substack's confirmation page in
+  // a new tab, and Substack then emails the reader to confirm.
+  form.action = 'https://consilium.substack.com/api/v1/free?nojs=true';
+  form.method = 'post';
+  form.target = '_blank';
+  setTimeout(function () {
+    form.innerHTML = '<p style="color:white;font-size:14px;">Thanks. A confirmation page has opened in a new tab. Check your inbox to finish subscribing.</p>';
+  }, 400);
+  return true;
+}
+</script>
+
+</body>
+</html>

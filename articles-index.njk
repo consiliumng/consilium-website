@@ -1,0 +1,203 @@
+---
+layout: base.njk
+title: Articles — Consilium
+description: Analysis on Nigeria's health system — finance, workforce, policy, and the forces shaping it.
+activePage: articles
+permalinkPath: articles/
+permalink: articles/index.html
+---
+<style>
+:root{--blue:#3D35EB;--blue-deep:#2D28C8;--ink:#123184;--ink-light:#2CB1F4;--lime:#C8F5A0;--grey-bg:#F4F4F8;--grey-border:#E0E0E8;--white:#ffffff;--body-sec:#4A4A63;--r-card:16px;--r-pill:48px;--ease:0.22s ease}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--grey-bg);-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Fraunces',serif;font-optical-sizing:auto;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
+    .eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px;width:100%}
+    .eyebrow::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .eyebrow::after{content:'';flex:1;height:1px;background:currentColor;opacity:.18;display:block}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;border:1.5px solid transparent;transition:background var(--ease),border-color var(--ease),color var(--ease);white-space:nowrap}
+    .btn-blue{background:var(--blue);color:var(--white);border-color:var(--blue)}.btn-blue:hover{background:var(--blue-deep)}
+
+    /* Nav */
+    .nav-icon-primary{fill:#fff;transition:fill .3s ease}.nav-icon-secondary{fill:rgba(255,255,255,.65);transition:fill .3s ease}
+    nav{position:sticky;top:0;z-index:100;background:var(--blue);height:64px;display:flex;align-items:center;transition:background-color .35s ease}
+    nav[data-theme="light"]{background:var(--grey-bg)}
+    nav[data-theme="light"] .nav-logo{color:var(--ink)}
+    nav[data-theme="light"] .nav-icon-primary{fill:var(--ink)}
+    nav[data-theme="light"] .nav-icon-secondary{fill:var(--ink-light)}
+    nav[data-theme="light"] .nav-links a{color:rgba(18,48,132,.65)}
+    nav[data-theme="light"] .nav-links a::after{background:var(--ink)}
+    nav[data-theme="light"] .nav-links a:hover{color:var(--ink)}
+    nav[data-theme="light"] .nav-cta{background:rgba(61,53,235,.08)!important;color:var(--blue)!important;border-color:rgba(61,53,235,.25)!important}
+    nav[data-theme="light"] .hamburger span{background:var(--ink)}
+    .nav-inner{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px);display:flex;align-items:center;justify-content:space-between;width:100%}
+    .nav-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:17px;font-weight:600;letter-spacing:-.3px;text-decoration:none;flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:clamp(16px,2.5vw,30px);list-style:none}
+    .nav-links a{color:rgba(255,255,255,.78);font-size:14px;font-weight:500;text-decoration:none;transition:color var(--ease);position:relative;display:inline-block}
+    .nav-links a::after{content:'';display:block;height:1.5px;background:var(--white);width:0;transition:width var(--ease)}
+    .nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}
+    .nav-links a.active{color:var(--white)!important}.nav-links a.active::after{width:100%}
+    .nav-cta{background:rgba(255,255,255,.15)!important;color:var(--white)!important;border:1px solid rgba(255,255,255,.3)!important;padding:8px 18px!important;border-radius:var(--r-pill)!important;font-weight:600!important}
+    .nav-cta::after{display:none!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--white)}
+    .mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:var(--blue-deep);padding:8px 24px 24px;z-index:99}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;color:rgba(255,255,255,.82);font-size:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none}
+
+    /* Hero */
+    .hero{background:var(--blue);padding:clamp(72px,10vw,120px) 0 clamp(64px,9vw,100px);position:relative;overflow:hidden}
+    .hero .wrap{position:relative;z-index:1}
+    .hero h1{font-size:clamp(40px,6vw,72px);font-variation-settings:"opsz" 72,"wght" 700;color:var(--white);margin-bottom:16px;max-width:640px}
+    .hero-lead{font-size:clamp(15px,1.4vw,17px);color:rgba(255,255,255,.72);line-height:1.72;max-width:520px}
+
+    /* Filter bar */
+    .filter-bar{background:var(--grey-bg);padding:clamp(24px,3vw,36px) 0 0}
+    .filter-inner{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-bottom:clamp(28px,4vw,44px);border-bottom:1px solid var(--grey-border)}
+    .filter-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;padding:7px 16px;border-radius:var(--r-pill);border:1.5px solid var(--grey-border);background:var(--white);color:var(--body-sec);cursor:pointer;transition:all var(--ease)}
+    .filter-btn:hover{border-color:var(--blue);color:var(--blue)}
+    .filter-btn.active{background:var(--blue);color:var(--white);border-color:var(--blue)}
+    .filter-count{font-size:11px;font-weight:600;background:var(--grey-bg);color:var(--body-sec);padding:2px 7px;border-radius:10px;margin-left:4px}
+    .filter-btn.active .filter-count{background:rgba(255,255,255,.2);color:var(--white)}
+
+    /* Body */
+    .writing-body{background:var(--grey-bg);background-image:radial-gradient(circle,rgba(61,53,235,.07) 1.5px,transparent 1.5px);background-size:28px 28px;padding:clamp(36px,5vw,56px) 0 clamp(80px,10vw,128px)}
+
+    /* Writing grid */
+    .writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:clamp(48px,6vw,72px)}
+    .writing-card{background:var(--white);border:1px solid var(--grey-border);border-radius:var(--r-card);padding:28px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;transition:border-color var(--ease)}
+    .writing-card:hover{border-color:var(--blue)}
+    .writing-tag{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue)}
+    .writing-date{font-size:12px;color:var(--body-sec)}
+    .writing-card h3{font-size:clamp(15px,1.6vw,18px);color:var(--ink);line-height:1.22}
+    .writing-card p{font-size:14px;color:var(--body-sec);line-height:1.65;flex:1}
+    .writing-arrow{font-size:13px;font-weight:600;color:var(--blue);margin-top:4px;display:inline-flex;align-items:center;gap:4px}
+
+    /* Loading / empty states */
+    .state-msg{text-align:center;padding:60px 20px;color:var(--body-sec);font-size:15px}
+    .state-msg a{color:var(--blue);font-weight:600}
+
+    /* Newsletter */
+    .newsletter{background:var(--blue);padding:clamp(56px,8vw,88px) 0}
+    .nl-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .nl-inner h2{font-size:clamp(24px,3vw,36px);color:var(--white);margin-bottom:10px}
+    .nl-inner p{font-size:15px;color:rgba(255,255,255,.68);line-height:1.65}
+    .nl-form{display:flex;gap:10px}
+    .nl-input{flex:1;height:46px;padding:0 18px;border:1px solid rgba(255,255,255,.2);border-radius:var(--r-pill);background:rgba(255,255,255,.08);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none;transition:border-color var(--ease)}
+    .nl-input::placeholder{color:rgba(255,255,255,.38)}.nl-input:focus{border-color:var(--lime)}
+    .nl-btn{height:46px;padding:0 22px;background:var(--lime);color:var(--ink);border:none;border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:opacity var(--ease)}.nl-btn:hover{opacity:.85}
+
+    /* Footer */
+    footer{background:var(--blue);padding:clamp(56px,8vw,96px) 0 36px}
+    .footer-tagline-block{padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:clamp(48px,6vw,72px)}
+    .footer-tagline-block p{font-family:'Fraunces',serif;font-optical-sizing:auto;font-variation-settings:"opsz" 48,"wght" 700;font-size:clamp(26px,3.5vw,44px);color:var(--white);line-height:1.15;text-wrap:balance;max-width:640px}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:clamp(48px,6vw,72px)}
+    .footer-brand p{font-size:14px;color:rgba(255,255,255,.58);line-height:1.68;margin-top:14px;max-width:240px}
+    .footer-col-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-links a{font-size:14px;color:rgba(255,255,255,.68);display:inline-block;transition:color var(--ease)}.footer-links a:hover{color:var(--white)}
+    .footer-nl-label{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:14px;line-height:1.5}
+    .footer-nl-form{display:flex;gap:8px}
+    .footer-nl-input{flex:1;height:38px;padding:0 14px;border:1px solid rgba(255,255,255,.2);border-radius:var(--r-pill);background:rgba(255,255,255,.07);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;outline:none}
+    .footer-nl-btn{height:38px;padding:0 14px;background:rgba(255,255,255,.14);color:var(--white);border:1px solid rgba(255,255,255,.28);border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer}
+    .footer-hr{border:none;border-top:1px solid rgba(255,255,255,.14);margin-bottom:24px}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer-copy,.footer-method{font-size:12px;color:rgba(255,255,255,.38)}
+    .footer-logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:17px;font-weight:600;letter-spacing:-.3px;text-decoration:none}
+
+    @media(max-width:780px){.writing-grid{grid-template-columns:1fr 1fr}.nl-inner{grid-template-columns:1fr;gap:28px}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:span 2}}
+    @media(max-width:580px){.nav-links{display:none}.hamburger{display:flex}.writing-grid{grid-template-columns:1fr}.nl-form{flex-direction:column}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+    .card-by{font-size:12px;color:var(--body-sec);margin:0 0 10px}
+</style>
+
+<section class="hero" data-nav-theme="dark">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--lime)">Articles</p>
+    <h1>Analysis from Consilium.</h1>
+    <p class="hero-lead">Healthcare finance, workforce, policy, and the market forces shaping Nigeria's health system. Free to read.</p>
+  </div>
+</section>
+
+
+<div class="filter-bar" data-nav-theme="light">
+  <div class="wrap">
+    <div class="filter-inner" id="filter-bar">
+      <button class="filter-btn active" data-filter="all" onclick="filterPosts(this, 'all')">
+        All <span class="filter-count">{{ collections.articlesFeed.length }}</span>
+      </button>
+      {% set tagsSeen = [] %}
+      {% for post in collections.articlesFeed %}
+        {% if post.tag not in tagsSeen %}
+          {% set tagsSeen = (tagsSeen.push(post.tag), tagsSeen) %}
+          <button class="filter-btn" data-filter="{{ post.tag }}" onclick="filterPosts(this, '{{ post.tag }}')">
+            {{ post.tag }} <span class="filter-count">{{ collections.articlesFeed | countBy("tag", post.tag) }}</span>
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<div class="writing-body" data-nav-theme="light">
+  <div class="wrap">
+    <div class="writing-grid" id="writing-grid">
+      {% for p in collections.articlesFeed %}
+      <a href="{{ p.url }}" class="writing-card"{% if p.external %} target="_blank" rel="noopener"{% endif %} data-tag="{{ p.tag }}">
+        <span class="writing-tag">{{ p.tag or 'Article' }}</span>
+        {% if p.date %}<span class="writing-date">{{ p.date | date("yyyy") }}</span>{% endif %}
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.teaser }}</p>
+        {% set byNames = p.authors | authorNames(collections.authors) %}{% if byNames %}<p class="card-by">By {{ byNames }}</p>{% endif %}
+        <span class="writing-arrow">Read →</span>
+      </a>
+      {% else %}
+      <p class="state-msg" style="grid-column:span 3">No articles yet. <a href="https://consilium.substack.com">Read on Substack</a></p>
+      {% endfor %}
+    </div>
+    <div style="text-align:center">
+      <a href="https://consilium.substack.com" class="btn btn-blue" target="_blank" rel="noopener">Read more on Substack →</a>
+    </div>
+  </div>
+</div>
+
+
+<section class="newsletter" data-nav-theme="dark">
+  <div class="wrap">
+    <div class="nl-inner">
+      <div>
+        <h2>Subscribe to the newsletter</h2>
+        <p>New articles go to your inbox. Free, no spam, unsubscribe any time.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="return nlSubscribe(this)">
+          <input class="nl-input" type="email" name="email" placeholder="Your email address" required>
+          <button class="nl-btn" type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function filterPosts(btn, filter) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.writing-card').forEach(card => {
+    card.style.display = (filter === 'all' || card.dataset.tag === filter) ? '' : 'none';
+  });
+}
+const navEl = document.getElementById('main-nav');
+const themed = document.querySelectorAll('[data-nav-theme]');
+function updateNav() {
+  themed.forEach(s => {
+    const r = s.getBoundingClientRect();
+    if (r.top <= 64 && r.bottom > 64) navEl.setAttribute('data-theme', s.dataset.navTheme);
+  });
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+</script>

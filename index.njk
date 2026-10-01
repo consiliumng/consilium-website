@@ -1,0 +1,1750 @@
+---
+layout: base.njk
+title: Consilium — Nigerian Health Systems Intelligence
+description: Nigeria's health systems intelligence and advisory firm. Primary research on workforce, financing, and market access for institutional decision-makers.
+activePage: home
+permalinkPath: ""
+permalink: index.html
+---
+<style>
+/* ============================================================
+       TOKENS
+    ============================================================ */
+    :root {
+      --blue:         #3D35EB;
+      --blue-deep:    #2D28C8;
+      --ink:          #123184;
+      --ink-light:    #2CB1F4;
+      --lime:         #C8F5A0;
+      --amber:        #F5A623;
+      --grey-bg:      #F4F4F8;
+      --grey-border:  #E0E0E8;
+      --white:        #ffffff;
+      --body-sec:     #4A4A63;
+      --r-card:       16px;
+      --r-pill:       48px;
+      --ease:         0.22s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--grey-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', serif;
+      font-optical-sizing: auto;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 60px);
+    }
+
+    section { padding: clamp(80px, 11vw, 128px) 0; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: start;
+    }
+
+    /* ============================================================
+       EYEBROW
+    ============================================================ */
+    .eyebrow {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+    /* Hairline rule extending from the label to the right edge */
+    .eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.18;
+      display: block;
+    }
+
+    /* ============================================================
+       UNIVERSAL HOVER — underline animation for text links
+    ============================================================ */
+    .link-ul {
+      display: inline-block;
+      position: relative;
+    }
+    .link-ul::after {
+      content: '';
+      display: block;
+      height: 1.5px;
+      background: var(--blue-deep);
+      width: 0;
+      transition: width var(--ease);
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+    }
+    .link-ul:hover::after { width: 100%; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 24px;
+      border-radius: var(--r-pill);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      transition: background var(--ease), border-color var(--ease), color var(--ease);
+      white-space: nowrap;
+    }
+
+    /* white fill (on blue bg) */
+    .btn-white {
+      background: var(--white);
+      color: var(--blue);
+      border-color: var(--white);
+    }
+    .btn-white:hover { background: var(--grey-bg); border-color: var(--grey-bg); }
+
+    /* ghost white (on blue bg) */
+    .btn-ghost-w {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .btn-ghost-w:hover { border-color: var(--white); }
+
+    /* blue fill (on light bg) */
+    .btn-blue {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+    .btn-blue:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+
+    /* ghost blue (on light bg) */
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--grey-border);
+    }
+    .btn-ghost:hover { border-color: var(--blue-deep); color: var(--blue-deep); }
+
+    /* small variant */
+    .btn-sm { font-size: 13px; padding: 9px 18px; }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    /* Nav icon fills — dark theme (default, on blue) */
+    .nav-icon-primary   { fill: #ffffff; transition: fill 0.3s ease; }
+    .nav-icon-secondary { fill: rgba(255,255,255,0.65); transition: fill 0.3s ease; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--blue);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.35s ease;
+    }
+
+    /* Light nav — grey/white sections */
+    nav[data-theme="light"] { background: var(--grey-bg); }
+    nav[data-theme="light"] .nav-logo { color: var(--ink); }
+    nav[data-theme="light"] .nav-icon-primary   { fill: var(--ink); }
+    nav[data-theme="light"] .nav-icon-secondary { fill: var(--ink-light); }
+    nav[data-theme="light"] .nav-links a { color: rgba(18,48,132,0.65); }
+    nav[data-theme="light"] .nav-links a::after { background: var(--ink); }
+    nav[data-theme="light"] .nav-links a:hover { color: var(--ink); }
+    nav[data-theme="light"] .nav-cta {
+      background: rgba(61,53,235,0.08) !important;
+      color: var(--blue) !important;
+      border-color: rgba(61,53,235,0.25) !important;
+    }
+    nav[data-theme="light"] .nav-cta:hover {
+      background: rgba(61,53,235,0.15) !important;
+    }
+    nav[data-theme="light"] .hamburger span { background: var(--ink); }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 60px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.5vw, 30px);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color var(--ease);
+      position: relative;
+      display: inline-block;
+    }
+    .nav-links a::after {
+      content: '';
+      display: block;
+      height: 1.5px;
+      background: var(--white);
+      width: 0;
+      transition: width var(--ease);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: rgba(255,255,255,0.15) !important;
+      color: var(--white) !important;
+      border: 1px solid rgba(255,255,255,0.3) !important;
+      padding: 8px 18px !important;
+      border-radius: var(--r-pill) !important;
+      font-weight: 600 !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: rgba(255,255,255,0.26) !important; border-color: rgba(255,255,255,0.55) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--blue-deep);
+      padding: 8px 24px 24px;
+      z-index: 99;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      color: rgba(255,255,255,0.82);
+      font-size: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+    .mobile-menu a:last-child { border-bottom: none; color: var(--white); font-weight: 600; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      background: var(--blue);
+      padding: clamp(80px, 11vw, 130px) 0 clamp(88px, 11vw, 140px);
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-centered {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 104px);
+      font-variation-settings: "opsz" 144, "wght" 700;
+      color: var(--white);
+      line-height: 1.0;
+      margin-top: 6px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: rgba(255,255,255,0.72);
+      line-height: 1.72;
+      margin: 0 auto 36px;
+      max-width: 680px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ============================================================
+       WHY THIS MATTERS
+    ============================================================ */
+    .matters { background: var(--grey-bg); }
+
+    .stat-col { position: sticky; top: 88px; }
+
+    .stat-figure {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(88px, 13vw, 148px);
+      color: var(--blue);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      margin-bottom: 12px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--body-sec);
+      line-height: 1.6;
+      max-width: 210px;
+      padding-top: 8px;
+      border-top: 1.5px solid var(--grey-border);
+    }
+
+    .matters-text h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+
+    .matters-text p {
+      font-size: 15.5px;
+      color: var(--body-sec);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+    .matters-text p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       WHAT WE DO
+    ============================================================ */
+    .what { background: var(--blue); position: relative; }
+
+    .what-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: clamp(40px, 5vw, 64px);
+      gap: 32px;
+    }
+
+    .what h2 {
+      font-size: clamp(30px, 4vw, 50px);
+      color: var(--white);
+      max-width: 460px;
+    }
+
+    .what-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      max-width: 260px;
+      text-align: right;
+      line-height: 1.65;
+    }
+
+    .accordion { border-top: 1px solid rgba(255,255,255,0.18); }
+
+    .acc-item { border-bottom: 1px solid rgba(255,255,255,0.18); }
+
+    .acc-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 0;
+      cursor: pointer;
+      text-align: left;
+      transition: opacity var(--ease);
+    }
+    .acc-trigger:hover { opacity: 0.82; }
+
+    .acc-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+      transition: background var(--ease);
+    }
+    .acc-item.open .acc-dot { background: var(--white); }
+
+    .acc-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(13px, 1.5vw, 15px);
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--white);
+      flex: 1;
+    }
+
+    .acc-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: rgba(255,255,255,0.55);
+      transition: transform 0.3s ease;
+    }
+    .acc-item.open .acc-chevron { transform: rotate(180deg); }
+
+    .acc-body-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.36s ease;
+    }
+    .acc-item.open .acc-body-wrap { grid-template-rows: 1fr; }
+    .acc-body-wrap > div { overflow: hidden; }
+
+    .acc-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 0 0 32px 28px;
+    }
+
+    .acc-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+    }
+
+    .acc-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--lime);
+      align-self: start;
+      margin-top: 4px;
+      display: inline-block;
+      position: relative;
+    }
+    .acc-link::after {
+      content: '';
+      display: block;
+      height: 1.5px;
+      background: var(--lime);
+      width: 0;
+      transition: width var(--ease);
+    }
+    .acc-link:hover::after { width: 100%; }
+
+    /* ============================================================
+       WORK
+    ============================================================ */
+    .work { background: var(--grey-bg); }
+
+    .work-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: clamp(36px, 5vw, 56px);
+      gap: 24px;
+    }
+
+    .work h2 { font-size: clamp(28px, 3.5vw, 44px); }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .work-card {
+      background: var(--white);
+      border: 1px solid var(--grey-border);
+      border-radius: var(--r-card);
+      overflow: hidden;
+      display: block;
+      transition: border-color var(--ease), box-shadow var(--ease);
+      color: inherit;
+      position: relative;
+    }
+    .work-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 1px var(--blue);
+    }
+
+    /* Image-based card preview — used when image_url is set in REPORTS */
+    .card-preview-img {
+      height: 230px;
+      background-size: cover;
+      background-position: center top;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-preview-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(transparent, rgba(18,48,132,0.72));
+      pointer-events: none;
+    }
+
+    .card-preview { height: 230px; position: relative; overflow: hidden; }
+
+    /* report card preview */
+    .preview-report {
+      background: var(--ink);
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px 22px;
+      position: relative;
+    }
+    .preview-report::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 22px,
+        rgba(255,255,255,0.035) 22px, rgba(255,255,255,0.035) 23px
+      );
+    }
+    .preview-report::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 30%, var(--blue) 100%);
+      opacity: 0.5;
+    }
+    .report-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+    }
+    .report-label span { color: var(--lime); display: block; font-size: 26px; }
+
+    /* tool card preview */
+    .preview-tool {
+      background: var(--ink);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 20px;
+      position: relative;
+    }
+    .preview-tool::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 56px),
+        repeating-linear-gradient(0deg,  rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 36px);
+    }
+    .tool-stat { text-align: center; position: relative; z-index: 1; }
+    .tool-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: var(--lime);
+      line-height: 1;
+      display: block;
+    }
+    .tool-lbl {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .card-body { 
+      padding: 32px 40px 40px 40px;
+    }
+
+    /* h3 link spans the whole card; buttons sit above it */
+    .work-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .work-card h3 a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .card-chip {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: rgba(61,53,235,0.09);
+      color: var(--blue);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .work-card h3 { font-size: clamp(16px, 1.8vw, 20px); margin-bottom: 10px; }
+
+    .work-card p {
+      font-size: 14px;
+      color: var(--body-sec);
+      margin-bottom: 0;
+      line-height: 1.65;
+    }
+
+    .card-ctas { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; position: relative; z-index: 2; }
+
+    /* ============================================================
+       PARTNERSHIP
+    ============================================================ */
+    .partnership { background: var(--blue); position: relative; }
+
+    .partnership h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .partner-lead {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: rgba(255,255,255,0.72);
+      line-height: 1.72;
+      margin-bottom: 36px;
+      max-width: 500px;
+    }
+
+    .partner-modes {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mode {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .mode-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .mode-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       WRITING
+    ============================================================ */
+    .writing { background: var(--grey-bg); }
+
+    .writing-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: clamp(36px, 5vw, 56px);
+      gap: 24px;
+    }
+
+    .writing h2 { font-size: clamp(28px, 3.5vw, 44px); }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: clamp(48px, 6vw, 72px);
+    }
+
+    .writing-card {
+      background: var(--white);
+      border: 1px solid var(--grey-border);
+      border-radius: var(--r-card);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color var(--ease);
+    }
+    .writing-card:hover { border-color: var(--blue); }
+
+    .writing-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .writing-card h3 {
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.22;
+    }
+
+    .writing-card p {
+      font-size: 13px;
+      color: var(--body-sec);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .writing-arrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* newsletter strip */
+    .newsletter {
+      background: var(--ink);
+      border-radius: var(--r-card);
+      padding: clamp(32px, 5vw, 52px);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .newsletter h3 {
+      font-size: clamp(22px, 2.5vw, 30px);
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .newsletter p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+
+    .nl-form { display: flex; gap: 10px; }
+
+    .nl-input {
+      flex: 1;
+      height: 46px;
+      padding: 0 18px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--r-pill);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color var(--ease);
+    }
+    .nl-input::placeholder { color: rgba(255,255,255,0.38); }
+    .nl-input:focus { border-color: var(--lime); }
+
+    .nl-btn {
+      height: 46px;
+      padding: 0 22px;
+      background: var(--lime);
+      color: var(--ink);
+      border: none;
+      border-radius: var(--r-pill);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity var(--ease);
+    }
+    .nl-btn:hover { opacity: 0.85; }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .about { background: var(--grey-bg); }
+
+    .about h2 { font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 24px; }
+
+    .about-text p {
+      font-size: 15.5px;
+      color: var(--body-sec);
+      line-height: 1.78;
+      margin-bottom: 16px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .team { display: flex; flex-direction: column; gap: 14px; }
+
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--grey-border);
+      border-radius: var(--r-card);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .team-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .team-name { font-size: 15px; font-weight: 600; }
+    .team-role { font-size: 13px; color: var(--body-sec); }
+
+    .team-incoming {
+      border-style: dashed;
+      opacity: 0.55;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--blue);
+      padding: clamp(56px, 8vw, 96px) 0 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: clamp(48px, 6vw, 72px);
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.68;
+      margin-top: 14px;
+      max-width: 240px;
+    }
+
+    .footer-col-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 16px;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.68);
+      display: inline-block;
+      position: relative;
+      transition: color var(--ease);
+    }
+    .footer-links a::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: var(--white);
+      width: 0;
+      transition: width var(--ease);
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-links a:hover::after { width: 100%; }
+
+    .footer-nl-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .footer-nl-form { display: flex; gap: 8px; }
+
+    .footer-nl-input {
+      flex: 1;
+      height: 38px;
+      padding: 0 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--r-pill);
+      background: rgba(255,255,255,0.07);
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color var(--ease);
+    }
+    .footer-nl-input::placeholder { color: rgba(255,255,255,0.32); }
+    .footer-nl-input:focus { border-color: rgba(255,255,255,0.55); }
+
+    .footer-nl-btn {
+      height: 38px;
+      padding: 0 14px;
+      background: rgba(255,255,255,0.14);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: var(--r-pill);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--ease);
+    }
+    .footer-nl-btn:hover { background: rgba(255,255,255,0.24); }
+
+    .footer-hr { border: none; border-top: 1px solid rgba(255,255,255,0.14); margin-bottom: 24px; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.38);
+    }
+    .footer-copy a { color: rgba(255,255,255,0.38); transition: color var(--ease); }
+    .footer-copy a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-method {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-align: right;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL — CSS scroll timeline + IntersectionObserver fallback
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: none;
+    }
+    @supports (animation-timeline: view()) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        animation: fadeRise linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 42%;
+      }
+      @keyframes fadeRise {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    }
+
+    /* ============================================================
+       CARD METRICS — report card publication line
+    ============================================================ */
+    .card-metrics {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      color: var(--body-sec);
+      text-transform: uppercase;
+      padding-top: 16px;
+      margin-top: 4px;
+      border-top: 1px solid var(--grey-border);
+    }
+
+    /* Enhanced book-cover preview for report cards */
+    .preview-report {
+      background: var(--ink);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px 24px 20px;
+      position: relative;
+    }
+    .preview-report::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 22px,
+        rgba(255,255,255,0.035) 22px, rgba(255,255,255,0.035) 23px
+      );
+    }
+    .preview-report::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 30%, var(--blue) 100%);
+      opacity: 0.5;
+    }
+    .report-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+    }
+    .report-label span { color: var(--lime); display: block; font-size: 28px; margin-bottom: 4px; }
+    .report-cover-rule {
+      width: 40px;
+      height: 2px;
+      background: var(--lime);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       FOOTER TAGLINE
+    ============================================================ */
+    .footer-tagline-block {
+      padding-bottom: clamp(40px, 5vw, 64px);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: clamp(48px, 6vw, 72px);
+    }
+    .footer-tagline-block p {
+      font-family: 'Fraunces', serif;
+      font-optical-sizing: auto;
+      font-variation-settings: "opsz" 48, "wght" 700;
+      font-size: clamp(26px, 3.5vw, 44px);
+      color: var(--white);
+      line-height: 1.15;
+      text-wrap: balance;
+      max-width: 640px;
+    }
+
+    /* ============================================================
+       ABSTRACT DESIGN ELEMENTS
+    ============================================================ */
+
+    /* Dot grid on all grey sections — faint graph-paper texture */
+    .matters, .work, .writing, .about {
+      background-image: radial-gradient(circle, rgba(61,53,235,0.07) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+    }
+
+    /* Icon mark watermark on blue sections — large, low-opacity */
+    .hero, .what, .partnership, .why-consilium {
+      overflow: hidden;
+    }
+    .hero::after, .what::after, .partnership::after, .why-consilium::after {
+      content: '';
+      position: absolute;
+      width: 480px;
+      height: 534px; /* maintains icon aspect ratio 99.5:110.86 */
+      right: -80px;
+      bottom: -120px;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5OS41IDExMC44NiI+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgZD0iTTUzOC41LDQ1Ni43MXYzMy44OEg0OTkuN3EwLTE5LjkyLS4xLTM5LjgyYzAtMy4xMiwwLTYuMjMsMC05LjM1YTEuNTMsMS41MywwLDAsMSwyLjYyLTEuMDlsMTAuNTQsMTAuNTVhMS4yNywxLjI3LDAsMCwwLC44OS4zN0g1MzNBNS40Niw1LjQ2LDAsMCwxLDUzOC41LDQ1Ni43MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48cGF0aCBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIiBkPSJNNTQ5LjMsNTAyLjA2bC0xMC40MSwxMC43MmExLjE1LDEuMTUsMCwwLDAtLjE5LjI2LDEuMjIsMS4yMiwwLDAsMC0uMTguNjV2MTlhNi4xOSw2LjE5LDAsMCwxLTYuMSw2LjI3SDQ5OS42OVY0OTkuNTRsMzktLjEsOS41MywwQTEuNTYsMS41NiwwLDAsMSw1NDkuMyw1MDIuMDZaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDUwLjI1IC00MzkuODgpIi8+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgZD0iTTQ1MC4yNSw1MzMuN1Y0OTkuNDFoMzkuMjhxMCwyMC4xNi4xLDQwLjNjMCwzLjE2LDAsNi4zMSwwLDkuNDdhMS41NSwxLjU1LDAsMCwxLTIuNjUsMS4xTDQ3Ni4zMiw1MzkuNmExLjI2LDEuMjYsMCwwLDAtLjktLjM3SDQ1NS43OEE1LjU0LDUuNTQsMCwwLDEsNDUwLjI1LDUzMy43WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4yNSAtNDM5Ljg4KSIvPjxwYXRoIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiIGQ9Ik00NTAuNiw0ODcuNjRsOC4yLTEwLjdhMS4xLDEuMSwwLDAsMCwuMTUtLjI2LDEuNTMsMS41MywwLDAsMCwuMTQtLjY0di0xOWMwLTMuNDYsMi4xNS02LjI3LDQuOC02LjI3aDI1Ljc2djM5LjM1cS0xNS4zNi4wNi0zMC43LjFsLTcuNSwwQzQ1MC4zOSw0OTAuMyw0NDkuODUsNDg4LjYyLDQ1MC42LDQ4Ny42NFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMjUgLTQzOS44OCkiLz48L3N2Zz4=");
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ensure section content sits above the watermark */
+    .hero .wrap, .what .wrap, .partnership .wrap, .why-consilium .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============================================================
+       HERO PROOF STRIP
+    ============================================================ */
+    .hero-proof {
+      display: flex;
+      gap: clamp(24px, 4vw, 56px);
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      flex-wrap: wrap;
+    }
+    .proof-item { display: flex; flex-direction: column; gap: 4px; }
+    .proof-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 6vw, 80px);
+      color: var(--lime);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .proof-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ============================================================
+       TRUST STRIP — "Who our work serves"
+    ============================================================ */
+    .trust-strip {
+      background: var(--white);
+      padding: clamp(48px, 7vw, 80px) 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(24px, 3vw, 40px);
+      margin-top: 32px;
+    }
+    .trust-grid h3 { font-size: clamp(16px, 1.8vw, 19px); margin-bottom: 8px; color: var(--ink); }
+    .trust-grid p  { font-size: 14px; color: var(--body-sec); line-height: 1.65; }
+
+    /* ============================================================
+       WHY CONSILIUM — blue section
+    ============================================================ */
+    .why-consilium {
+      background: var(--blue);
+      padding: clamp(64px, 9vw, 108px) 0;
+      position: relative;
+    }
+    .why-consilium .eyebrow { color: var(--lime); }
+    .why-consilium h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--white);
+      margin-bottom: clamp(36px, 5vw, 56px);
+    }
+    .why-consilium .writing-grid { margin-bottom: 0; }
+    .why-consilium .writing-card {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .why-consilium .writing-card:hover { border-color: rgba(255,255,255,0.45); }
+    .why-consilium .writing-card h3 { color: var(--white); }
+    .why-consilium .writing-card p   { color: rgba(255,255,255,0.68); }
+
+    /* ============================================================
+       METHODOLOGY — grey section
+    ============================================================ */
+    .methodology {
+      background: var(--grey-bg);
+      padding: clamp(64px, 9vw, 108px) 0;
+      background-image: radial-gradient(circle, rgba(61,53,235,0.07) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+    }
+    .methodology .eyebrow { color: var(--blue); }
+    .methodology h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      margin-bottom: clamp(36px, 5vw, 56px);
+    }
+
+    @media (max-width: 580px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .two-col { grid-template-columns: 1fr; }
+      .hero-centered { text-align: left; }
+      .hero-ctas { justify-content: flex-start; }
+      .hero-tagline { margin-left: 0; }
+
+      .stat-col { position: static; }
+
+      .what-head { flex-direction: column; align-items: flex-start; }
+      .what-sub { text-align: left; }
+      .acc-body { grid-template-columns: 1fr; gap: 16px; }
+
+      .work-intro { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .work-grid { grid-template-columns: 1fr; }
+
+      .writing-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .writing-grid { grid-template-columns: 1fr; }
+      .newsletter { grid-template-columns: 1fr; gap: 28px; }
+      .nl-form { flex-direction: column; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .footer-method { text-align: left; }
+
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .hero-proof { gap: 16px; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 780px) and (min-width: 581px) {
+      .writing-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+      .acc-body-wrap { transition: none !important; }
+    }
+</style>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" data-nav-theme="dark">
+  <div class="wrap">
+    <div class="hero-centered">
+      <p class="eyebrow" style="color: var(--lime);">Health Systems Intelligence</p>
+      <h1>The intelligence behind<br>better healthcare decisions.</h1>
+      <p class="hero-tagline">Consilium produces original research, analytical tools, and decision intelligence for governments, investors, development partners, and healthcare organizations shaping the future of Nigerian healthcare.</p>
+      <div class="hero-ctas">
+        <a href="https://hcw25.consilium.ng" class="btn btn-white">Read the 2025 report →</a>
+        <a href="/contact.html" class="btn btn-ghost-w">Work with us</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <span class="proof-number">537</span>
+          <span class="proof-label">Healthcare workers surveyed</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-number">35</span>
+          <span class="proof-label">States + FCT</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-number">6</span>
+          <span class="proof-label">Professional cadres</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-number" data-no-count>2025</span>
+          <span class="proof-label">National workforce study</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHAT WE DO
+============================================================ -->
+<section class="what" id="what-we-do" data-nav-theme="dark">
+  <div class="wrap">
+    <p class="eyebrow" style="color: var(--lime); margin-bottom: 16px;">What we do</p>
+    <div class="what-head">
+      <h2>How we help healthcare decision-makers</h2>
+      <p class="what-sub">From original data collection to policy advice, every engagement is designed to reduce uncertainty and improve decision-making.</p>
+    </div>
+
+    <div class="accordion reveal">
+
+      <div class="acc-item open">
+        <button class="acc-trigger" aria-expanded="true">
+          <span class="acc-dot"></span>
+          <span class="acc-title">Research</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="acc-body-wrap">
+          <div>
+            <div class="acc-body">
+              <p class="acc-desc">We design and execute large-scale primary research across Nigeria's healthcare system. From workforce studies and facility assessments to health financing and patient experience surveys, we generate the original evidence institutions need to make informed decisions.</p>
+              <a href="/reports/" class="acc-link">See our reports →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-dot"></span>
+          <span class="acc-title">Policy Intelligence</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="acc-body-wrap">
+          <div>
+            <div class="acc-body">
+              <p class="acc-desc">Evidence only matters when it influences decisions. We translate research findings into policy briefs, strategic recommendations, and analytical products that support governments, regulators, and development partners.</p>
+              <a href="#partnership" class="acc-link">Work with us →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-dot"></span>
+          <span class="acc-title">Market Intelligence</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="acc-body-wrap">
+          <div>
+            <div class="acc-body">
+              <p class="acc-desc">We help organizations understand the Nigerian healthcare market through sector intelligence, competitive analysis, demand assessments, and investment research. Our work replaces assumptions with measurable evidence.</p>
+              <a href="#partnership" class="acc-link">Get in touch →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-dot"></span>
+          <span class="acc-title">Monitoring & Evaluation</span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="acc-body-wrap">
+          <div>
+            <div class="acc-body">
+              <p class="acc-desc">We design monitoring frameworks and evaluate programmes to determine what works, why it works, and where improvements are needed. Every evaluation feeds back into stronger evidence for future decisions.</p>
+              <a href="#partnership" class="acc-link">Work with us →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY THIS MATTERS
+============================================================ -->
+<section class="matters" id="matters" data-nav-theme="light">
+  <div class="wrap">
+    <div class="matters-text reveal" style="max-width: 680px;">
+      <p class="eyebrow" style="color: var(--blue);">Why this matters</p>
+      <h2>Better healthcare decisions begin with better evidence.</h2>
+      <p>Nigeria's healthcare system faces no shortage of ambition. What it lacks is reliable, decision-ready evidence. Too many critical decisions are still made using fragmented administrative records, outdated surveys, or assumptions borrowed from other markets.</p>
+      <p>For governments, this means policies built on incomplete information. For investors, it means uncertainty. For providers, it means planning without visibility. For development partners, it means measuring impact without a reliable baseline.</p>
+      <p>Consilium exists to close that evidence gap. We generate original health systems intelligence through primary research, rigorous analysis, and practical tools that help institutions make better decisions with greater confidence.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TRUST STRIP
+============================================================ -->
+<section class="trust-strip" data-nav-theme="light">
+  <div class="wrap">
+    <p class="eyebrow" style="color: var(--blue);">Who our work serves</p>
+    <div class="trust-grid reveal">
+      <div>
+        <h3>Government</h3>
+        <p>Evidence for policy, planning and health financing.</p>
+      </div>
+      <div>
+        <h3>Development Partners</h3>
+        <p>Independent intelligence for programme design and evaluation.</p>
+      </div>
+      <div>
+        <h3>Investors</h3>
+        <p>Market intelligence for healthcare investment decisions.</p>
+      </div>
+      <div>
+        <h3>Healthcare Providers</h3>
+        <p>Operational insights for growth and service delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WORK
+============================================================ -->
+<section class="work" id="work" data-nav-theme="light">
+  <div class="wrap">
+    <div class="work-intro">
+      <div>
+        <p class="eyebrow" style="color: var(--blue);">Reports & data tools</p>
+        <h2>Flagship Intelligence</h2>
+        <p style="font-size:15px; color:var(--body-sec); margin-top:8px; max-width:520px; line-height:1.65;">Original datasets, analytical tools, and research products that improve healthcare decision-making across Nigeria.</p>
+      </div>
+      <a href="#partnership" class="btn btn-ghost" style="flex-shrink:0;">Commission research →</a>
+    </div>
+
+    <div class="work-grid reveal" id="work-grid">
+      {% for report in collections.reports %}
+      {% set r = report.data %}
+      <div class="work-card">
+        <div class="card-preview">
+          {% if r.image_url %}<div class="card-preview-img" style="background-image:url('{{ r.image_url }}')"></div>
+          {% elif r.tag == "Data Tool" %}<div class="preview-tool">
+            {% if r.stat1_num %}<div class="tool-stat"><span class="tool-num">{{ r.stat1_num }}</span><span class="tool-lbl">{{ r.stat1_label }}</span></div>{% endif %}
+            {% if r.stat2_num %}<div class="tool-stat"><span class="tool-num">{{ r.stat2_num }}</span><span class="tool-lbl">{{ r.stat2_label }}</span></div>{% endif %}
+            {% if r.stat3_num %}<div class="tool-stat"><span class="tool-num">{{ r.stat3_num }}</span><span class="tool-lbl">{{ r.stat3_label }}</span></div>{% endif %}
+          </div>
+          {% else %}<div class="preview-report"><div class="report-label"><span>{{ r.cover_year }}</span>{{ r.cover_label | safe }}</div><div class="report-cover-rule"></div></div>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <span class="card-chip">{{ r.tag }}</span>
+          <h3><a href="/reports/{{ r.slug }}/">{{ r.title }}</a></h3>
+          <p>{{ r.description }}</p>
+          {% if r.metrics %}<p class="card-metrics">{{ r.metrics }}</p>{% endif %}
+          <div class="card-ctas">
+            <a href="{{ r.primary_cta_url }}" class="btn btn-blue btn-sm">{{ r.primary_cta_text }}</a>
+            {% if r.has_download %}<a href="/reports/{{ r.slug }}/" class="btn btn-ghost btn-sm">Download</a>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PARTNERSHIP
+============================================================ -->
+<section class="partnership" id="partnership" data-nav-theme="dark">
+  <div class="wrap">
+    <div class="two-col" style="gap: clamp(40px, 7vw, 110px);">
+      <div>
+        <p class="eyebrow" style="color: var(--lime);">Work with us</p>
+        <h2>Commission intelligence that moves decisions</h2>
+        <p class="partner-lead">Consilium is available for commissioned research partnerships, advisory engagements, and data licensing with government agencies, development finance institutions, health sector investors, and international organisations.</p>
+        <a href="mailto:office@consilium.ng" class="btn btn-white">Get in touch →</a>
+      </div>
+      <div>
+        <div class="partner-modes">
+          <div class="mode">
+            <p class="mode-name">Research Partnerships</p>
+            <p class="mode-desc">Commission a primary study or extend our existing research agenda to answer your specific policy or investment question — with full methodological rigour and data transparency.</p>
+          </div>
+          <div class="mode">
+            <p class="mode-name">Advisory Engagements</p>
+            <p class="mode-desc">Bring Consilium in to translate existing data into actionable intelligence — for a board presentation, funding proposal, sector entry assessment, or policy brief.</p>
+          </div>
+          <div class="mode">
+            <p class="mode-name">Data & Intelligence Licensing</p>
+            <p class="mode-desc">Access our proprietary datasets for internal analysis, research reproduction, or product development. Licensing terms available on request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ARTICLES
+============================================================ -->
+<section class="writing" id="articles" data-nav-theme="light">
+  <div class="wrap">
+    <div class="writing-head">
+      <div>
+        <p class="eyebrow" style="color: var(--blue);">Articles</p>
+        <h2>Latest articles</h2>
+      </div>
+      <a href="/articles/" class="btn btn-ghost" style="flex-shrink:0;">All articles →</a>
+    </div>
+
+    <div class="writing-grid reveal" id="writing-grid">
+      {% for p in collections.articlesFeed %}
+      {% if loop.index <= 3 %}
+      <a href="{{ p.url }}" class="writing-card"{% if p.external %} target="_blank" rel="noopener"{% endif %}>
+        <span class="writing-tag">{{ p.tag }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.teaser }}</p>
+        {% set byNames = p.authors | authorNames(collections.authors) %}{% if byNames %}<p class="card-by" style="font-size:12px;margin:0 0 10px">By {{ byNames }}</p>{% endif %}
+        <span class="writing-arrow">Read →</span>
+      </a>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="newsletter">
+      <div>
+        <h3>Get the newsletter</h3>
+        <p>Analysis on Nigeria's health system — finance, workforce, policy, and the forces shaping it. Free, and worth reading.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="return nlSubscribe(this)">
+          <input class="nl-input" type="email" placeholder="Your email address">
+          <button class="nl-btn" type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY CONSILIUM
+============================================================ -->
+<section class="why-consilium" data-nav-theme="dark">
+  <div class="wrap">
+    <p class="eyebrow">Why Consilium</p>
+    <h2>Why organizations choose us</h2>
+    <div class="writing-grid">
+      <div class="writing-card">
+        <h3>Original Evidence</h3>
+        <p>We generate primary Nigerian datasets instead of relying solely on secondary sources.</p>
+      </div>
+      <div class="writing-card">
+        <h3>Nigeria First</h3>
+        <p>Every study is designed specifically for Nigeria's health system, institutions and markets.</p>
+      </div>
+      <div class="writing-card">
+        <h3>Decision Ready</h3>
+        <p>Our research is built to inform policy, investment and operational decisions — not simply to be published.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section class="about" id="about" data-nav-theme="light">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color: var(--blue);">About</p>
+      <h2 style="font-size: clamp(28px, 3.5vw, 42px); margin-bottom: 24px; max-width: 600px;">Building Nigeria's health intelligence infrastructure</h2>
+      <div class="about-text" style="max-width: 640px;">
+        <p>Consilium is an independent health systems intelligence organization dedicated to improving healthcare decision-making through original evidence.</p>
+        <p>Founded in 2023, we combine primary research, health economics, policy analysis, and data science to generate intelligence that governments, development partners, investors, and healthcare providers can use with confidence.</p>
+        <p>Our ambition extends beyond publishing reports. We are building the information infrastructure that enables smarter healthcare decisions across Nigeria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     METHODOLOGY
+============================================================ -->
+<section class="methodology" data-nav-theme="light">
+  <div class="wrap">
+    <p class="eyebrow">Research Standards</p>
+    <h2>Every study follows the same principles.</h2>
+    <div class="writing-grid">
+      <div class="writing-card">
+        <h3>Transparent Methodology</h3>
+        <p>Clear documentation of sampling, data collection and analytical methods.</p>
+      </div>
+      <div class="writing-card">
+        <h3>Primary Evidence</h3>
+        <p>Original data collected directly from the Nigerian health system.</p>
+      </div>
+      <div class="writing-card">
+        <h3>Independent Analysis</h3>
+        <p>Evidence that follows the data rather than institutional incentives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+
+<script>
+
+  // ============================================================
+  // COUNT-UP ANIMATION — hero proof strip numbers
+  // ============================================================
+  function countUp(el) {
+    const end = parseInt(el.textContent.replace(/,/g, ''), 10);
+    if (!end) return;
+    const duration = 1400;
+    const t0 = performance.now();
+    function tick(t) {
+      const progress = Math.min((t - t0) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+      el.textContent = Math.round(ease * end).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const proofIO = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.proof-number:not([data-no-count])').forEach(countUp);
+      proofIO.disconnect();
+    }
+  }, { threshold: 0.5 });
+  const proofEl = document.querySelector('.hero-proof');
+  if (proofEl) proofIO.observe(proofEl);
+
+  // ============================================================
+  // SCROLL REVEAL — IntersectionObserver fallback for Firefox
+  // and any browser without animation-timeline: view()
+  // ============================================================
+  if (!CSS.supports('animation-timeline', 'view()')) {
+    const revealIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+  }
+
+  // ============================================================
+  // ANNOUNCEMENT BANNER — dismiss and restore on new session
+  // ============================================================
+  (function() {
+    const banner = document.getElementById('survey-banner');
+    if (sessionStorage.getItem('bannerDismissed')) {
+      banner.style.display = 'none';
+    }
+  })();
+
+  function dismissBanner() {
+    document.getElementById('survey-banner').style.display = 'none';
+    sessionStorage.setItem('bannerDismissed', '1');
+  }
+
+  // ============================================================
+  // DYNAMIC NAV THEME — background matches current section
+  // ============================================================
+  const navEl = document.querySelector('nav');
+  const themedSections = document.querySelectorAll('[data-nav-theme]');
+
+  function updateNavTheme() {
+    const navBottom = 64; // nav height in px
+    let current = null;
+    themedSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= navBottom && rect.bottom > navBottom) {
+        current = section;
+      }
+    });
+    // Also check the footer
+    const footer = document.querySelector('footer[data-nav-theme]');
+    if (footer) {
+      const fr = footer.getBoundingClientRect();
+      if (fr.top <= navBottom && fr.bottom > navBottom) current = footer;
+    }
+    if (current) {
+      navEl.setAttribute('data-theme', current.dataset.navTheme);
+    }
+  }
+
+  window.addEventListener('scroll', updateNavTheme, { passive: true });
+  updateNavTheme(); // set correct theme on load
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Accordion — one open at a time
+  document.querySelectorAll('.acc-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.acc-item');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.acc-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
