@@ -1,6 +1,7 @@
 ---
 permalink: false
 slug: hcw-paychek
+topic: Workforce
 tag: Data Tool
 title: HCW Pay Check
 description: An interactive salary explorer built on 2025 survey data. Compare median compensation by cadre, employer type, and experience.
@@ -8,6 +9,8 @@ methodology: "Underlying data from the 2025 Consilium HCW Survey. Non-probabilit
 data_source: "Primary survey data"
 metrics: ""
 image_url: ""
+cover_stat: "₦250k"
+cover_stat_label: "median salary across six health cadres"
 cover_label: "HCW Pay Check"
 cover_year: "2025"
 primary_cta_text: "Try the tool →"

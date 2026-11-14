@@ -1,0 +1,23 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{#- Eleventy lists only one page per paginated template in collections.all,
+    so reports, articles and authors are added from their own collections. #}
+{%- for item in collections.all %}
+{%- if item.url and item.url != "/sitemap.xml" and item.inputPath != "./reports.njk" and item.inputPath != "./articles.njk" and item.inputPath != "./authors.njk" %}
+  <url><loc>{{ site.url }}{{ item.url }}</loc></url>
+{%- endif %}
+{%- endfor %}
+{%- for r in collections.reports %}
+  <url><loc>{{ site.url }}/reports/{{ r.data.slug }}/</loc><lastmod>{{ r.date | date("iso") }}</lastmod></url>
+{%- endfor %}
+{%- for a in collections.articles %}
+  <url><loc>{{ site.url }}/articles/{{ a.data.slug }}/</loc><lastmod>{{ a.date | date("iso") }}</lastmod></url>
+{%- endfor %}
+{%- for au in collections.authorPages %}
+  <url><loc>{{ site.url }}/authors/{{ au.slug }}/</loc></url>
+{%- endfor %}
+</urlset>

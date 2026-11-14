@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#3D35EB">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVY7VZZE79"></script>
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
@@ -30,10 +30,10 @@ gtag('js',new Date());gtag('config','G-VVY7VZZE79');
 </script>
 <style>
 :root{
-  --blue:#3D35EB;--dark:#123184;--sky:#2CB1F4;--navy:#0D0D2B;--grey:#F4F4F8;--lime:#C8F5A0;--amber:#F5A623;
-  --border:#E0E0E8;--muted:#54547A;--none:#DADAE6;
+  --blue:#3D35EB;--dark:#123184;--sky:#2CB1F4;--navy:#123184;--grey:#F4F4F8;--lime:#C8F5A0;--amber:#F5A623;
+  --border:#E0E0E8;--muted:#4A4A63;--none:#DADAE6;
   --serif:'Fraunces',Georgia,'Times New Roman',serif;
-  --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:68px;-webkit-text-size-adjust:100%}
@@ -156,13 +156,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* stats */
 .stats{display:grid;gap:22px 28px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-top:34px}
-.stat b{display:block;font:500 clamp(38px,5vw,54px)/1 var(--serif);color:var(--blue);margin-bottom:8px}
+.stat b{display:block;font:300 clamp(38px,5vw,54px)/1 var(--sans);letter-spacing:-.035em;color:var(--blue);margin-bottom:8px}
 .stat span{font-size:14px;color:#26264a;display:block;max-width:26ch}
 .fine{font-size:13px;color:var(--muted)}
 
 /* chapter openers */
 .opener{position:relative;overflow:hidden;background:var(--navy);color:#fff;padding:56px 16px 48px}
-.opener .num{position:absolute;right:-.04em;bottom:-.3em;font:500 clamp(220px,42vw,440px)/1 var(--serif);color:rgba(255,255,255,.055);pointer-events:none;user-select:none}
+.opener .num{position:absolute;right:-.04em;bottom:-.3em;font:300 clamp(220px,42vw,440px)/1 var(--sans);letter-spacing:-.05em;color:rgba(255,255,255,.055);pointer-events:none;user-select:none}
 .opener h2{font-size:clamp(36px,6vw,64px);position:relative;max-width:18ch;margin-bottom:14px}
 .opener p{position:relative;max-width:56ch;color:#C9C9E6;font-size:clamp(16px,2vw,18px);margin:0}
 
@@ -192,7 +192,7 @@ th{background:var(--grey);font-weight:600;font-size:13.5px}
 td.n,th.n{text-align:right}
 tr:last-child td{border-bottom:0}
 .bigstats{display:grid;gap:20px 26px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:22px 0}
-.bigstats b{display:block;font:500 clamp(32px,4.4vw,44px)/1 var(--serif);color:var(--blue);margin-bottom:6px}
+.bigstats b{display:block;font:300 clamp(32px,4.4vw,44px)/1 var(--sans);letter-spacing:-.035em;color:var(--blue);margin-bottom:6px}
 .bigstats span{font-size:14px;color:#26264a;display:block}
 
 /* flow */
@@ -223,6 +223,33 @@ tr:last-child td{border-bottom:0}
 .ctrl label{font-size:14px;font-weight:600}
 .ctrl input[type=range]{width:min(320px,100%);accent-color:var(--blue)}
 .readout{font-size:15px;font-weight:600;margin:8px 0 0}
+
+/* Command panel: dark Ink panel, glow tied to Nigeria's share */
+.chart.cmd{background:#123184;color:#fff;border-radius:24px;padding:20px;position:relative;overflow:hidden}
+.cmd>*:not(.bl){position:relative;z-index:1}
+.cmd .bl{position:absolute;border-radius:50%;filter:blur(46px);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:width .5s ease,height .5s ease,left .5s ease,top .5s ease,opacity .5s ease}
+.cmd h4{color:#fff;margin:0}
+.cmd .sub{color:rgba(255,255,255,.78)}
+.cmd-top{display:flex;justify-content:space-between;align-items:center;gap:10px 16px;flex-wrap:wrap;margin-bottom:4px}
+.cmd-sc{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer}
+.cmd-sc input{accent-color:#C8F5A0;width:16px;height:16px}
+.cmd .seg{margin:4px 0 14px}
+.cmd .seg button{background:rgba(255,255,255,.16);border:0;color:#fff;font-weight:600}
+.cmd .seg button[aria-pressed="true"]{background:#C8F5A0;color:#123184}
+.cmd .seg button:focus-visible,.cmd-sc input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.cmd-two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+.cmd-two div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:14px 16px}
+.cmd-two small{display:block;font-size:13.5px;color:rgba(255,255,255,.82)}
+.cmd-two b{display:block;margin-top:6px;font-family:var(--sans);font-weight:300;font-size:clamp(34px,6vw,56px);line-height:.95;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.cmd-gr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:16px;align-items:center}
+.cmd-gr small{display:block;font-size:13.5px;color:rgba(255,255,255,.82);margin-bottom:8px}
+.cmd-cells{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.cmd-cells i{aspect-ratio:1;border-radius:3px;background:rgba(255,255,255,.26);display:block;transition:background .3s}
+.cmd-cells i.n{background:#C8F5A0}
+.cmd .readout{color:#fff;font-weight:500;font-size:14.5px;margin-top:12px}
+.cmd .fine{color:rgba(255,255,255,.72);margin:8px 0 0;font-size:12.5px}
+@media (max-width:620px){.cmd-gr{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.cmd .bl,.cmd-cells i{transition:none}}
 .lgd{display:flex;gap:16px;flex-wrap:wrap;font-size:13.5px;margin:8px 0 0}
 .lgd i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .seg{display:flex;flex-wrap:wrap;gap:6px}
@@ -243,7 +270,7 @@ tr:last-child td{border-bottom:0}
 .count{font-size:14px;color:var(--muted);margin:6px 0}
 .deadlines{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:18px 0}
 .deadlines div{border-top:4px solid var(--blue);background:var(--grey);border-radius:0 0 12px 12px;padding:10px 14px 12px;font-size:14px}
-.deadlines b{font:500 24px/1 var(--serif);display:block;margin-bottom:6px}
+.deadlines b{font:300 26px/1 var(--sans);letter-spacing:-.03em;display:block;margin-bottom:6px}
 .deadlines ul{margin:0;padding-left:1.1em}
 .deadlines li{margin-bottom:3px}
 
@@ -290,7 +317,7 @@ footer .wrap>*{max-width:80ch}
 #map path{transition:fill .35s ease,opacity .2s}
 /* stat bands */
 .band{background:var(--blue);color:#fff;border-radius:22px;padding:26px 24px 24px;margin:40px 0;max-width:78ch;display:grid;gap:22px 34px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.band b{display:block;font:500 clamp(54px,9vw,88px)/.95 var(--serif);color:var(--lime);margin-bottom:8px;font-variant-numeric:tabular-nums}
+.band b{display:block;font:300 clamp(54px,9vw,88px)/.95 var(--sans);letter-spacing:-.04em;color:var(--lime);margin-bottom:8px;font-variant-numeric:tabular-nums}
 .band span{display:block;font-size:15px;line-height:1.5;max-width:34ch}
 /* chapter contents (phones and tablets) */
 .chapnav{border:1px solid var(--border);background:var(--grey);border-radius:16px;margin:0 0 6px;max-width:66ch}
@@ -486,13 +513,15 @@ noscript .ns{padding:12px 16px;background:var(--amber);font-weight:600}
     <div class="body">
       <h3 id="ch2-money" data-rail>The money: a crossover in 2027</h3>
       <p class="txt">The US plans $1.95 billion in yearly allocations across 2026 to 2030, plus a separate $124.7 million management and operations line that is not spread by year. That brings its total to $2.08 billion. Nigeria commits $2.98 billion of new funding, counting only money it raises itself, including loans, and not donor grants (§5.1.1).</p>
-      <div class="chart" id="fundChart">
-        <h4>US and Nigerian funding, 2026 to 2030</h4>
-        <p class="sub">US dollars, millions. Move the slider to compare a year.</p>
-        <svg id="fundSvg" viewBox="0 0 640 300" role="img" aria-label="Line chart: US funding falls from 501 to 237 million dollars while Nigerian funding rises from 345 to 845 million dollars, crossing in 2027."></svg>
-        <div class="ctrl"><label for="fundYear">Year</label><input id="fundYear" type="range" min="0" max="4" step="1" value="1"><label><input type="checkbox" id="fundScn"> Show the MOU's shortfall example for 2030</label></div>
-        <p class="readout" id="fundOut"></p>
-        <div class="lgd"><span><i style="background:#3D35EB"></i>United States</span><span><i style="background:#0D0D2B"></i>Nigeria</span></div>
+      <div class="chart cmd" id="fundChart">
+        <span class="bl" aria-hidden="true"></span><span class="bl" aria-hidden="true"></span><span class="bl" aria-hidden="true"></span>
+        <div class="cmd-top"><h4 id="cmdQ">Who funds the MOU in 2027?</h4><label class="cmd-sc"><input type="checkbox" id="fundScn"> The MOU's shortfall example for 2030</label></div>
+        <p class="sub">US dollars, millions. Choose a year.</p>
+        <div class="seg" id="fundSeg" role="group" aria-label="Choose a year"></div>
+        <div class="cmd-two"><div><small>United States</small><b id="cmdUS" style="color:rgba(255,255,255,.92)"></b></div><div><small>Nigeria</small><b id="cmdNG" style="color:#C8F5A0"></b></div></div>
+        <div class="cmd-gr"><div><small id="cmdShare"></small><div class="cmd-cells" id="cmdCells" aria-hidden="true"></div></div><svg id="fundSvg" viewBox="0 0 420 200" role="img" aria-label="Line chart: US funding falls from 501 to 237 million dollars while Nigerian funding rises from 345 to 845 million dollars, crossing in 2027."></svg></div>
+        <p class="readout" id="fundOut" aria-live="polite"></p>
+        <p class="fine">Source: MOU funding schedule. Announced values, which may differ slightly between sources.</p>
       </div>
       <div class="tbl"><table>
         <thead><tr><th></th><th class="n">2026</th><th class="n">2027</th><th class="n">2028</th><th class="n">2029</th><th class="n">2030</th></tr></thead>
@@ -509,7 +538,7 @@ noscript .ns{padding:12px 16px;background:var(--amber);font-weight:600}
       <div class="chart"><h4>Of every $100 spent</h4>
         <p class="sub">Each block is $1 of combined US and Nigerian funding in that year, using the MOU's rounded shares.</p>
         <svg id="p100Svg" viewBox="0 0 640 178" role="img" aria-label="For every 100 dollars of combined funding, the US share falls from 59 dollars in 2026 to 22 dollars in 2030 while Nigeria's rises from 41 to 78."></svg>
-        <div class="lgd"><span><i style="background:#3D35EB"></i>United States</span><span><i style="background:#0D0D2B"></i>Nigeria</span></div></div>
+        <div class="lgd"><span><i style="background:#BDBDDB"></i>United States</span><span><i style="background:#3D35EB"></i>Nigeria</span></div></div>
       <p class="dnote">Shares: Consilium analysis of MOU Appendix 1 figures. The US total includes the $124.7 million management and operations line, which the yearly figures spread across the period only in the MOU's totals.</p>
 
       <div class="band">
@@ -525,7 +554,7 @@ noscript .ns{padding:12px 16px;background:var(--amber);font-weight:600}
  <div class="seg" id="hrMode" role="group" aria-label="Choose a view" style="margin-bottom:8px"></div>
         <div class="seg" id="hrSeg" role="group" aria-label="Choose a cadre"></div>
         <svg id="hrSvg" viewBox="0 0 640 300" role="img" aria-label="Stacked bars showing positions funded by the United States shrinking to zero and positions funded by Nigeria growing to the full total by 2030."></svg>
-        <div class="lgd"><span><i style="background:#3D35EB"></i>Funded by the US</span><span><i style="background:#0D0D2B"></i>Funded by Nigeria</span></div>
+        <div class="lgd"><span><i style="background:#BDBDDB"></i>Funded by the US</span><span><i style="background:#3D35EB"></i>Funded by Nigeria</span></div>
         <p class="fine" id="hrUnit" style="margin:8px 0 0"></p>
       </div>
       <p class="txt">In 2026 the US funds 13,936 community health workers, 5,574 community health practitioners, 2,862 nurses, 1,103 pharmacy workers and 284 doctors (Appendix 3). US funding for these workers falls from $23.6 million to $5.7 million by 2030, while Nigeria's rises from $32.8 million to $80.3 million. Lab workers are handled separately.</p>
@@ -1046,27 +1075,47 @@ panel.addEventListener('click',function(e){if(e.target.closest('[data-navclose]'
   });
 })();
 
-/* ---------- funding chart ---------- */
+/* ---------- funding chart: command panel, glow tied to Nigeria's share ---------- */
 (function(){
-  var yrs=[2026,2027,2028,2029,2030],us=[500.7,455.6,402.0,358.4,236.9],ng=[344.8,470.0,595.1,720.3,845.4];
-  var svg=$('#fundSvg'),yi=$('#fundYear'),scn=$('#fundScn'),out=$('#fundOut');
-  var L=52,R=616,T=16,B=262,MAX=900;
-  function X(i){return L+(R-L)*i/4}function Y(v){return B-(B-T)*v/MAX}
-  function draw(){
-    var u=us.slice(),n=ng.slice();
-    if(scn.checked){u[4]=136.9;n[4]=720.3}
-    var i=+yi.value,h='';
-    [0,300,600,900].forEach(function(g){h+='<line x1="'+L+'" x2="'+R+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="#d6d6e2"/><text x="'+(L-8)+'" y="'+(Y(g)+4)+'" text-anchor="end" font-size="12" fill="#54547A">$'+g+'M</text>'});
-    yrs.forEach(function(y,k){h+='<text x="'+X(k)+'" y="286" text-anchor="middle" font-size="12.5" fill="'+(k===i?'#0D0D2B':'#54547A')+'" font-weight="'+(k===i?700:400)+'">'+y+'</text>'});
-    h+='<line x1="'+X(i)+'" x2="'+X(i)+'" y1="'+T+'" y2="'+B+'" stroke="#0D0D2B" stroke-dasharray="4 4" opacity=".5"/>';
-    function line(a,c){return '<polyline fill="none" stroke="'+c+'" stroke-width="3.5" stroke-linejoin="round" points="'+a.map(function(v,k){return X(k)+','+Y(v)}).join(' ')+'"/>'+a.map(function(v,k){return '<circle cx="'+X(k)+'" cy="'+Y(v)+'" r="'+(k===i?7:4.5)+'" fill="'+(k===i?c:'#fff')+'" stroke="'+c+'" stroke-width="2.5"/>'}).join('')}
-    h+=line(u,'#3D35EB')+line(n,'#0D0D2B');
-    svg.innerHTML=h;
-    var sh=Math.round(u[i]/(u[i]+n[i])*100);
-    out.textContent=yrs[i]+': US $'+Math.round(u[i])+'M, Nigeria $'+Math.round(n[i])+'M. US share '+sh+'%.'+(scn.checked&&i===4?' In the MOU\'s example, Nigeria raises only $720M and the US cuts about $100M.':'');
+  var yrs=[2026,2027,2028,2029,2030],us0=[500.7,455.6,402.0,358.4,236.9],ng0=[344.8,470.0,595.1,720.3,845.4];
+  var panel=document.getElementById('fundChart'),seg=document.getElementById('fundSeg'),scn=document.getElementById('fundScn'),out=document.getElementById('fundOut'),svg=document.getElementById('fundSvg');
+  var q=document.getElementById('cmdQ'),uEl=document.getElementById('cmdUS'),nEl=document.getElementById('cmdNG'),shEl=document.getElementById('cmdShare'),cellsEl=document.getElementById('cmdCells');
+  var blobs=[].slice.call(panel.querySelectorAll('.bl')),cur=1;
+  var W=420,H=200,L=40,R=W-16,T=14,B=H-28;
+  function X(i){return L+(R-L)*i/4}function Y(v){return B-(B-T)*v/900}
+  function money(v){return '$'+Math.round(v)+'M'}
+  yrs.forEach(function(y,k){
+    var btn=document.createElement('button');btn.type='button';btn.textContent=y;btn.setAttribute('aria-pressed',String(k===cur));
+    btn.onclick=function(){cur=k;draw();track('chart_interaction',{chart:'funding',control:'year',value:y})};
+    seg.appendChild(btn);
+  });
+  function glow(sh){
+    var w=panel.clientWidth||700,base=w*(0.2+sh*0.5);
+    var set=[[0.68,0.42,1,'#2CB1F4',0.35+sh*0.5],[0.86,0.58,0.72,'#3D35EB',0.35+sh*0.5],[0.62,0.7,0.35+sh*0.4,'#C8F5A0',0.1+sh*0.38]];
+    blobs.forEach(function(el,k){var c=set[k],sz=Math.round(base*c[2]);el.style.width=sz+'px';el.style.height=sz+'px';el.style.left=(c[0]*100)+'%';el.style.top=(c[1]*100)+'%';el.style.background=c[3];el.style.opacity=c[4].toFixed(2)});
   }
-  yi.oninput=function(){draw();track('chart_interaction',{chart:'funding',control:'year',value:yrs[+yi.value]})};
+  function draw(){
+    var u=us0.slice(),n=ng0.slice();
+    if(scn.checked){u[4]=136.9;n[4]=720.3}
+    var i=cur,sh=n[i]/(u[i]+n[i]),pct=Math.round(sh*100),cells=Math.round(sh*50);
+    [].slice.call(seg.children).forEach(function(b,k){b.setAttribute('aria-pressed',String(k===i))});
+    q.textContent='Who funds the MOU in '+yrs[i]+'?';
+    uEl.textContent=money(u[i]);nEl.textContent=money(n[i]);
+    shEl.textContent="Nigeria's share: "+pct+'%';
+    var c='';for(var k2=0;k2<50;k2++){c+='<i'+(k2>=50-cells?' class="n"':'')+'></i>'}cellsEl.innerHTML=c;
+    var h='';
+    [0,300,600,900].forEach(function(g){h+='<line x1="'+L+'" x2="'+R+'" y1="'+Y(g)+'" y2="'+Y(g)+'" stroke="rgba(255,255,255,.22)"/><text x="0" y="'+(Y(g)+4)+'" font-size="12" fill="rgba(255,255,255,.78)">$'+g+'M</text>'});
+    yrs.forEach(function(y,k){h+='<text x="'+X(k)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12" fill="'+(k===i?'#fff':'rgba(255,255,255,.75)')+'" font-weight="'+(k===i?700:400)+'">'+y+'</text>'});
+    h+='<line x1="'+X(i)+'" x2="'+X(i)+'" y1="'+T+'" y2="'+B+'" stroke="#fff" stroke-dasharray="3 3" opacity=".5"/>';
+    h+='<polyline fill="none" stroke="rgba(255,255,255,.65)" stroke-width="2.5" stroke-linejoin="round" points="'+u.map(function(v,k){return X(k)+','+Y(v)}).join(' ')+'"/>';
+    h+='<polyline fill="none" stroke="#C8F5A0" stroke-width="3" stroke-linejoin="round" points="'+n.map(function(v,k){return X(k)+','+Y(v)}).join(' ')+'"/>';
+    h+='<circle cx="'+X(i)+'" cy="'+Y(u[i])+'" r="5" fill="#123184" stroke="rgba(255,255,255,.85)" stroke-width="2.5"/><circle cx="'+X(i)+'" cy="'+Y(n[i])+'" r="5.5" fill="#C8F5A0"/>';
+    svg.innerHTML=h;
+    glow(sh);
+    out.textContent=yrs[i]+': US '+money(u[i])+', Nigeria '+money(n[i])+'. US share '+Math.round(u[i]/(u[i]+n[i])*100)+'%.'+(scn.checked&&i===4?" In the MOU's example, Nigeria raises only $720M and the US cuts about $100M.":'');
+  }
   scn.onchange=function(){draw();track('chart_interaction',{chart:'funding',control:'scenario',value:scn.checked?'on':'off'})};
+  window.addEventListener('resize',function(){draw()});
   draw();
 })();
 
@@ -1089,11 +1138,11 @@ panel.addEventListener('click',function(e){if(e.target.closest('[data-navclose]'
     svg.setAttribute('viewBox','0 0 640 300');
     yrs.forEach(function(y,k){
       var x=L+k*(bw+gap),uh=(B-T)*us[k]/tot,nh=(B-T)-uh;
-      h+='<rect x="'+x+'" y="'+(B-uh)+'" width="'+bw+'" height="'+uh+'" fill="#3D35EB" rx="3"/>';
-      h+='<rect x="'+x+'" y="'+T+'" width="'+bw+'" height="'+nh+'" fill="#0D0D2B" rx="3"/>';
-      if(uh>26)h+='<text x="'+(x+bw/2)+'" y="'+(B-uh/2+4)+'" text-anchor="middle" font-size="12.5" font-weight="600" fill="#fff">'+fmt(us[k])+'</text>';
+      h+='<rect x="'+x+'" y="'+(B-uh)+'" width="'+bw+'" height="'+uh+'" fill="#BDBDDB" rx="3"/>';
+      h+='<rect x="'+x+'" y="'+T+'" width="'+bw+'" height="'+nh+'" fill="#3D35EB" rx="3"/>';
+      if(uh>26)h+='<text x="'+(x+bw/2)+'" y="'+(B-uh/2+4)+'" text-anchor="middle" font-size="12.5" font-weight="600" fill="#123184">'+fmt(us[k])+'</text>';
       if(nh>26)h+='<text x="'+(x+bw/2)+'" y="'+(T+nh/2+4)+'" text-anchor="middle" font-size="12.5" font-weight="600" fill="#fff">'+fmt(tot-us[k])+'</text>';
-      h+='<text x="'+(x+bw/2)+'" y="284" text-anchor="middle" font-size="12.5" fill="#0D0D2B">'+y+'</text>';
+      h+='<text x="'+(x+bw/2)+'" y="284" text-anchor="middle" font-size="12.5" fill="#123184">'+y+'</text>';
     });
     svg.innerHTML=h;unitEl.textContent='Bars show full-time equivalent positions. Figures inside bars are positions.';
   }
@@ -1105,11 +1154,11 @@ panel.addEventListener('click',function(e){if(e.target.closest('[data-navclose]'
     svg.setAttribute('viewBox','0 0 640 262');
     yrs.forEach(function(y,k){
       var nu=Math.min(nt,Math.round(us[k]/unit)),yy=6+k*50;
-      h+='<text x="0" y="'+(yy+19)+'" font-size="13" font-weight="600" fill="#0D0D2B">'+y+'</text>';
-      for(var n=0;n<nt;n++){h+=icon(x0+(n%cols)*step,yy,n<nu?'#3D35EB':'#0D0D2B')}
+      h+='<text x="0" y="'+(yy+19)+'" font-size="13" font-weight="600" fill="#123184">'+y+'</text>';
+      for(var n=0;n<nt;n++){h+=icon(x0+(n%cols)*step,yy,n<nu?'#BDBDDB':'#3D35EB')}
     });
     svg.innerHTML=h;
-    unitEl.textContent='Each icon is about '+fmt(unit)+' funded positions. Blue is funded by the US and navy by Nigeria.';
+    unitEl.textContent='Each icon is about '+fmt(unit)+' funded positions. Grey is funded by the US and blue by Nigeria.';
   }
   function draw(){
     var us=D[cur],tot=us[0];
@@ -1133,9 +1182,9 @@ panel.addEventListener('click',function(e){if(e.target.closest('[data-navclose]'
   var yrs=[2026,2027,2028,2029,2030],us=[59,49,40,33,22],svg=$('#p100Svg'),h='';
   yrs.forEach(function(y,k){
     var yy=6+k*34;
-    h+='<text x="0" y="'+(yy+17)+'" font-size="13" font-weight="600" fill="#0D0D2B">'+y+'</text>';
-    for(var n=0;n<100;n++){h+='<rect x="'+(46+n*5.3).toFixed(1)+'" y="'+yy+'" width="4.5" height="24" rx="1" fill="'+(n<us[k]?'#3D35EB':'#0D0D2B')+'"/>'}
-    h+='<text x="582" y="'+(yy+17)+'" font-size="12.5" fill="#0D0D2B">$'+us[k]+' / $'+(100-us[k])+'</text>';
+    h+='<text x="0" y="'+(yy+17)+'" font-size="13" font-weight="600" fill="#123184">'+y+'</text>';
+    for(var n=0;n<100;n++){h+='<rect x="'+(46+n*5.3).toFixed(1)+'" y="'+yy+'" width="4.5" height="24" rx="1" fill="'+(n<us[k]?'#BDBDDB':'#3D35EB')+'"/>'}
+    h+='<text x="582" y="'+(yy+17)+'" font-size="12.5" fill="#123184">$'+us[k]+' / $'+(100-us[k])+'</text>';
   });
   svg.innerHTML=h;
 })();

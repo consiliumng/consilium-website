@@ -1,0 +1,28 @@
+{#- Shared report card. Expects `r` (the report's data). Styles live in report-card.css. -#}
+{%- set tc = "policy" if r.tag == "Policy Brief" else ("tool" if r.tag == "Data Tool" else "report") -%}
+<article class="rc">
+  <div class="rc-cover t-{{ tc }}"{% if r.image_url %} style="--cover-img:url('{{ r.image_url }}')"{% endif %}>
+    <div class="rc-top"><span>{{ r.cover_year }}</span><span>{{ r.tag }}</span></div>
+    <div class="rc-fig">
+      {% if r.cover_stat %}
+      <div class="rc-num">{{ r.cover_stat }}</div>
+      {% if r.cover_stat_label %}<div class="rc-lbl">{{ r.cover_stat_label }}</div>{% endif %}
+      {% else %}
+      <div class="rc-num rc-num-text">{{ r.cover_label | safe }}</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="rc-body">
+    <h3><a href="/reports/{{ r.slug }}/">{{ r.title }}</a></h3>
+    <p class="rc-desc">{{ r.description }}</p>
+    {%- set byNames = r.authors | authorNames(collections.authors) %}
+    {%- if byNames %}<p class="rc-by">By {{ byNames }}</p>{% endif %}
+    <div class="rc-foot">
+      {%- if r.metrics %}<p class="rc-meta">{{ r.metrics }}</p>{% endif %}
+      <div class="rc-ctas">
+        <a href="{{ r.primary_cta_url }}" class="btn btn-blue btn-sm">{{ r.primary_cta_text }}</a>
+        {%- if r.has_download %}<a href="/reports/{{ r.slug }}/" class="btn btn-ghost btn-sm">Download</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</article>

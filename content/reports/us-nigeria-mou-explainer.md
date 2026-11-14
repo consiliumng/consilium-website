@@ -1,6 +1,7 @@
 ---
 permalink: false
 slug: us-nigeria-mou-explainer
+topic: Policy
 tag: Policy Brief
 title: "The US–Nigeria Health MOU, explained"
 description: "An interactive guide to the US–Nigeria health agreement: which African countries signed, what changes for Nigeria, what it requires, and what is contested."
@@ -8,6 +9,8 @@ data_source: "Public documents and reporting"
 methodology: "Sources are the text of the MOU, the US State Department, KFF, ONE, Public Citizen and public reporting up to September 30, 2026. Funding figures are announced values and may differ slightly between sources."
 metrics: "24 African MOUs signed. Data as of September 30, 2026."
 image_url: ""
+cover_stat: "24"
+cover_stat_label: "African countries have signed a US health MOU"
 cover_label: "US–Nigeria<br>Health MOU,<br>explained"
 cover_year: "2026"
 primary_cta_text: "Open the explainer"

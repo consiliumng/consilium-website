@@ -6,14 +6,15 @@
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
 
-<meta property="og:type" content="website">
+<link rel="canonical" href="{{ site.url }}/{{ permalinkPath }}">
+<meta property="og:type" content="{{ ogType or 'website' }}">
 <meta property="og:site_name" content="Consilium">
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:image" content="{{ ogImage or 'https://consilium.ng/og-image.png' }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://consilium.ng/{{ permalinkPath }}">
+<meta property="og:url" content="{{ site.url }}/{{ permalinkPath }}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }}">
@@ -24,18 +25,21 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=Plus+Jakarta+Sans:wght@400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=Hanken+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
-<script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", function (user) {
-      if (!user) {
-        window.netlifyIdentity.on("login", function () {
-          document.location.href = "/admin/";
-        });
-      }
-    });
+  // Netlify Identity is only needed when someone lands here from an invite,
+  // password-recovery or confirmation email (the link carries a token in the
+  // URL hash). Everyone else skips the download.
+  if (/(invite|recovery|confirmation|email_change)_token=/.test(location.hash)) {
+    var ni = document.createElement("script");
+    ni.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    ni.onload = function () {
+      window.netlifyIdentity.on("login", function () {
+        document.location.href = "/admin/";
+      });
+    };
+    document.head.appendChild(ni);
   }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVY7VZZE79"></script>
@@ -45,6 +49,17 @@
   gtag('js', new Date());
   gtag('config', 'G-VVY7VZZE79');
 </script>
+<style>
+/* Logo: the real Consilium logo files. White on Blue, colour on light.
+   The two versions cross-fade at the same speed as the nav background. */
+.nav-logo { position: relative; }
+.nav-logo img, .footer-logo img { height: 30px; width: auto; display: block; }
+.nav-logo img { transition: opacity 0.35s ease; }
+.nav-logo .logo-colour { position: absolute; left: 0; top: 50%; transform: translateY(-50%); opacity: 0; }
+nav[data-theme="light"] .nav-logo .logo-white { opacity: 0; }
+nav[data-theme="light"] .nav-logo .logo-colour { opacity: 1; }
+.footer-logo { display: inline-block; margin-bottom: 14px; }
+</style>
 </head>
 
 
@@ -52,14 +67,9 @@
 
 <nav id="main-nav" data-nav-theme="dark">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <svg height="36" viewBox="0 0 99.5 110.86" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path class="nav-icon-secondary" d="M538.5,456.71v33.88H499.7q0-19.92-.1-39.82c0-3.12,0-6.23,0-9.35a1.53,1.53,0,0,1,2.62-1.09l10.54,10.55a1.27,1.27,0,0,0,.89.37H533A5.46,5.46,0,0,1,538.5,456.71Z" transform="translate(-450.25 -439.88)"/>
-        <path class="nav-icon-primary" d="M549.3,502.06l-10.41,10.72a1.15,1.15,0,0,0-.19.26,1.22,1.22,0,0,0-.18.65v19a6.19,6.19,0,0,1-6.1,6.27H499.69V499.54l39-.1,9.53,0A1.56,1.56,0,0,1,549.3,502.06Z" transform="translate(-450.25 -439.88)"/>
-        <path class="nav-icon-secondary" d="M450.25,533.7V499.41h39.28q0,20.16.1,40.3c0,3.16,0,6.31,0,9.47a1.55,1.55,0,0,1-2.65,1.1L476.32,539.6a1.26,1.26,0,0,0-.9-.37H455.78A5.54,5.54,0,0,1,450.25,533.7Z" transform="translate(-450.25 -439.88)"/>
-        <path class="nav-icon-primary" d="M450.6,487.64l8.2-10.7a1.1,1.1,0,0,0,.15-.26,1.53,1.53,0,0,0,.14-.64v-19c0-3.46,2.15-6.27,4.8-6.27h25.76v39.35q-15.36.06-30.7.1l-7.5,0C450.39,490.3,449.85,488.62,450.6,487.64Z" transform="translate(-450.25 -439.88)"/>
-      </svg>
-      Consilium
+    <a href="/" class="nav-logo" aria-label="Consilium home">
+      <img class="logo-white" src="/assets/consilium-logo-white.png" alt="Consilium" width="135" height="30">
+      <img class="logo-colour" src="/assets/consilium-logo.png" alt="" width="135" height="30" aria-hidden="true">
     </a>
     <ul class="nav-links">
       <li><a href="/#what-we-do">What we do</a></li>
@@ -90,37 +100,35 @@
     </div>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="footer-logo">
-          <svg height="28" viewBox="0 0 99.5 110.86" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path fill="white" d="M549.3,502.06l-10.41,10.72a1.15,1.15,0,0,0-.19.26,1.22,1.22,0,0,0-.18.65v19a6.19,6.19,0,0,1-6.1,6.27H499.69V499.54l39-.1,9.53,0A1.56,1.56,0,0,1,549.3,502.06Z" transform="translate(-450.25 -439.88)"/>
-            <path fill="rgba(255,255,255,0.65)" d="M538.5,456.71v33.88H499.7q0-19.92-.1-39.82c0-3.12,0-6.23,0-9.35a1.53,1.53,0,0,1,2.62-1.09l10.54,10.55a1.27,1.27,0,0,0,.89.37H533A5.46,5.46,0,0,1,538.5,456.71Z" transform="translate(-450.25 -439.88)"/>
-            <path fill="rgba(255,255,255,0.65)" d="M450.25,533.7V499.41h39.28q0,20.16.1,40.3c0,3.16,0,6.31,0,9.47a1.55,1.55,0,0,1-2.65,1.1L476.32,539.6a1.26,1.26,0,0,0-.9-.37H455.78A5.54,5.54,0,0,1,450.25,533.7Z" transform="translate(-450.25 -439.88)"/>
-            <path fill="white" d="M450.6,487.64l8.2-10.7a1.1,1.1,0,0,0,.15-.26,1.53,1.53,0,0,0,.14-.64v-19c0-3.46,2.15-6.27,4.8-6.27h25.76v39.35q-15.36.06-30.7.1l-7.5,0C450.39,490.3,449.85,488.62,450.6,487.64Z" transform="translate(-450.25 -439.88)"/>
-          </svg>
-          Consilium
+        <a href="/" class="footer-logo" aria-label="Consilium home">
+          <img src="/assets/consilium-logo-white.png" alt="Consilium" width="135" height="30">
         </a>
         <p>Nigeria's health systems intelligence and advisory firm. Making sense of Nigerian healthcare in a way that actually matters.</p>
       </div>
       <div>
-        <p class="footer-col-label">Products</p>
+        <p class="footer-col-label">Latest work</p>
         <ul class="footer-links">
-          <li><a href="https://hcw25.consilium.ng">HCW Report 2025 ↗</a></li>
-          <li><a href="https://salarychecker.consilium.ng">HCW Pay Check ↗</a></li>
+          {%- for report in collections.reports %}
+          <li><a href="/reports/{{ report.data.slug }}/">{{ report.data.title }}</a></li>
+          {%- endfor %}
+          {%- for c in site.commissioned %}
+          <li><a href="{{ c.url }}">{{ c.title }}</a></li>
+          {%- endfor %}
         </ul>
       </div>
       <div>
         <p class="footer-col-label">Stay informed</p>
         <p class="footer-nl-label">The Consilium newsletter — Nigerian healthcare, in analysis.</p>
         <form class="footer-nl-form" onsubmit="return nlSubscribe(this)">
-          <input class="footer-nl-input" type="email" name="email" placeholder="Email address" required>
+          <input class="footer-nl-input" type="email" name="email" placeholder="Email address" aria-label="Email address" required>
           <button class="footer-nl-btn" type="submit">→</button>
         </form>
       </div>
     </div>
     <hr class="footer-hr">
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Consilium · <a href="mailto:office@consilium.ng">office@consilium.ng</a> · <a href="https://consilium.substack.com">Substack</a></p>
-      <p class="footer-method">2025 HCW Survey · 537 respondents · 35 states + FCT · 6 cadres</p>
+      <p class="footer-copy">© {{ buildYear }} Consilium · <a href="mailto:office@consilium.ng">office@consilium.ng</a> · <a href="https://consilium.substack.com">Substack</a></p>
+      <p class="footer-method">Research · Policy analysis · Data tools</p>
     </div>
   </div>
 </footer>
@@ -139,6 +147,23 @@
     });
   }
 })();
+
+function substackSubscribe(email) {
+  // Opens Substack's own confirmation page in a new tab (browsers block
+  // quiet background sign-ups). Call it straight from a click handler so
+  // the pop-up is not blocked.
+  var f = document.createElement('form');
+  f.action = 'https://consilium.substack.com/api/v1/free?nojs=true';
+  f.method = 'post';
+  f.target = '_blank';
+  f.style.display = 'none';
+  var i = document.createElement('input');
+  i.type = 'hidden'; i.name = 'email'; i.value = email;
+  f.appendChild(i);
+  document.body.appendChild(f);
+  f.submit();
+  setTimeout(function () { f.remove(); }, 1000);
+}
 
 function nlSubscribe(form) {
   // Browsers block a background (fetch) request to Substack from another

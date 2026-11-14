@@ -19,7 +19,7 @@ eleventyComputed:
 :root{--blue:#3D35EB;--blue-deep:#2D28C8;--ink:#123184;--ink-light:#2CB1F4;--lime:#C8F5A0;--grey-bg:#F4F4F8;--grey-border:#E0E0E8;--white:#ffffff;--body-sec:#4A4A63;--r-card:16px;--r-pill:48px;--ease:0.22s ease}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--grey-bg);background-image:radial-gradient(circle, rgba(61,53,235,0.07) 1.5px, transparent 1.5px);background-size:28px 28px;-webkit-font-smoothing:antialiased}
+body{font-family:'Hanken Grotesk',sans-serif;font-size:16px;line-height:1.7;color:var(--ink);background:var(--grey-bg);background-image:radial-gradient(circle, rgba(61,53,235,0.07) 1.5px, transparent 1.5px);background-size:28px 28px;-webkit-font-smoothing:antialiased}
 .toc-box{background:#fff;border:1px solid var(--grey-border);border-radius:var(--r-card);padding:28px}
 .toc-box-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
 .toc-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--grey-bg);font-size:14px}
@@ -32,10 +32,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;c
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-optical-sizing:auto;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
-.eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px;width:100%}
+.eyebrow{font-family:'Hanken Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:20px;width:100%}
 .eyebrow::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
 .eyebrow::after{content:'';flex:1;height:1px;background:currentColor;opacity:.18;display:block}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:var(--r-pill);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;border:1.5px solid transparent;transition:background var(--ease),border-color var(--ease),color var(--ease);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:var(--r-pill);font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;border:1.5px solid transparent;transition:background var(--ease),border-color var(--ease),color var(--ease);white-space:nowrap}
 .btn-white{background:var(--white);color:var(--blue);border-color:var(--white)}.btn-white:hover{background:var(--grey-bg)}
 .btn-blue{background:var(--blue);color:var(--white);border-color:var(--blue)}.btn-blue:hover{background:var(--blue-deep)}
 .btn-ghost-w{background:transparent;color:var(--white);border-color:rgba(255,255,255,.4)}.btn-ghost-w:hover{border-color:var(--white)}
@@ -248,7 +248,7 @@ footer{background:var(--ink);color:#fff;padding:48px 0 32px}
       </div>
       <div>
         <form class="nl-form" onsubmit="return nlSubscribe(this)" method="post" target="_blank">
-          <input class="nl-input" type="email" name="email" placeholder="Your email address" required>
+          <input class="nl-input" type="email" name="email" placeholder="Your email address" required aria-label="Your email address">
           <button class="nl-btn" type="submit">Subscribe →</button>
         </form>
       </div>
@@ -266,24 +266,25 @@ footer{background:var(--ink);color:#fff;padding:48px 0 32px}
       <p style="font-size:13px;color:#4A4A63;margin-bottom:24px">Enter your details and we'll send the PDF link to your inbox.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
         <div><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#4A4A63;margin-bottom:6px">Full name *</label>
-        <input id="dl-name" type="text" placeholder="Dr. Amaka Okonkwo" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
+        <input id="dl-name" aria-label="Full name" type="text" placeholder="Dr. Amaka Okonkwo" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Hanken Grotesk',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
         <div><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#4A4A63;margin-bottom:6px">Email *</label>
-        <input id="dl-email" type="email" placeholder="you@org.com" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
+        <input id="dl-email" aria-label="Work email" type="email" placeholder="you@org.com" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Hanken Grotesk',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
       </div>
       <div style="margin-bottom:20px"><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#4A4A63;margin-bottom:6px">Organisation <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-      <input id="dl-org" type="text" placeholder="Ministry / Firm / University" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
+      <input id="dl-org" aria-label="Organisation" type="text" placeholder="Ministry / Firm / University" style="width:100%;padding:10px 14px;border:1.5px solid #E0E0E8;border-radius:8px;font-family:'Hanken Grotesk',sans-serif;font-size:14px;outline:none" onfocus="this.style.borderColor='#3D35EB'" onblur="this.style.borderColor='#E0E0E8'"></div>
       <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#4A4A63;margin-bottom:20px;cursor:pointer">
-        <input type="checkbox" id="dl-nl" style="width:auto">
+        <input type="checkbox" id="dl-nl" aria-label="Subscribe to the Consilium newsletter" style="width:auto">
         Also subscribe me to the Consilium newsletter
       </label>
       <div id="dl-error" style="display:none;font-size:13px;color:#c0392b;padding:10px 14px;background:rgba(192,57,43,.07);border-radius:8px;margin-bottom:16px"></div>
-      <button id="dl-btn" onclick="submitDownload()" style="width:100%;padding:13px 24px;background:#3D35EB;color:#fff;border:none;border-radius:48px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer">Send me the report →</button>
+      <button id="dl-btn" onclick="submitDownload()" style="width:100%;padding:13px 24px;background:#3D35EB;color:#fff;border:none;border-radius:48px;font-family:'Hanken Grotesk',sans-serif;font-size:15px;font-weight:600;cursor:pointer">Send me the report →</button>
       <p style="font-size:12px;color:#4A4A63;text-align:center;margin-top:12px">We will never share your email. Unsubscribe any time.</p>
     </div>
     <div id="dl-success" style="display:none;text-align:center;padding:16px 0">
       <div style="width:52px;height:52px;background:rgba(61,53,235,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px">✓</div>
       <h3 style="font-family:'Fraunces',serif;font-size:20px;color:#123184;margin-bottom:8px">Check your inbox</h3>
       <p style="font-size:14px;color:#4A4A63;line-height:1.65">The download link has been sent to <strong id="dl-success-email"></strong>. Check your spam folder if it doesn't arrive within a few minutes.</p>
+      <p id="nl-note" style="display:none;margin-top:10px;font-size:13px;color:#4A4A63">A Substack tab has opened. Confirm your email there to finish subscribing to the newsletter.</p>
     </div>
   </div>
 </div>
@@ -298,7 +299,7 @@ updateNav();
 // ============================================================
 // DOWNLOAD GATE — posts to the Apps Script endpoint, same as before
 // ============================================================
-const PARTNERSHIP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwi7mjGvwj7y1S41d5wyqNu5Y03uicBWc8IOaSMm3Guix78-s4wy17yF5FU8CUik63F/exec';
+const PARTNERSHIP_SCRIPT_URL = '{{ site.scriptUrl }}';
 const REPORT_SLUG = "{{ r.slug }}";
 const REPORT_PDF_URL = "{{ r.pdf_file }}" ? "https://consilium.ng{{ r.pdf_file }}" : "";
 
@@ -329,6 +330,9 @@ async function submitDownload() {
     errEl.style.display = 'block';
     return;
   }
+  // Newsletter opt-in: open Substack's confirmation page now, while the click is still fresh
+  if (nl) { substackSubscribe(email); }
+
   const btn = document.getElementById('dl-btn');
   btn.textContent = 'Preparing your link…';
   btn.disabled = true;
@@ -342,13 +346,7 @@ async function submitDownload() {
         organisation: org, newsletter: nl ? 'yes' : 'no'
       })
     });
-    if (nl) {
-      fetch('https://consilium.substack.com/api/v1/free', {
-        method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-    }
+    if (nl) { document.getElementById('nl-note').style.display = 'block'; }
     document.getElementById('dl-success-email').textContent = email;
     if (typeof gtag === 'function') {
       gtag('event', 'report_download', { report_slug: REPORT_SLUG, report_title: "{{ r.title }}" });

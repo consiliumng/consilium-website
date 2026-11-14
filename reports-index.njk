@@ -24,19 +24,19 @@ permalink: reports/index.html
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; line-height: 1.7; color: var(--ink); background: var(--grey-bg); -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; line-height: 1.7; color: var(--ink); background: var(--grey-bg); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4 { font-family: 'Fraunces', serif; font-optical-sizing: auto; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
     a { color: inherit; text-decoration: none; }
 
     .wrap { max-width: 1140px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); }
 
     /* Eyebrow */
-    .eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; width: 100%; }
+    .eyebrow { font-family: 'Hanken Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; width: 100%; }
     .eyebrow::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
     .eyebrow::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.18; display: block; }
 
     /* Buttons */
-    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 24px; border-radius: var(--r-pill); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; transition: background var(--ease), border-color var(--ease), color var(--ease); white-space: nowrap; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 24px; border-radius: var(--r-pill); font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; border: 1.5px solid transparent; transition: background var(--ease), border-color var(--ease), color var(--ease); white-space: nowrap; }
     .btn-white { background: var(--white); color: var(--blue); border-color: var(--white); }
     .btn-white:hover { background: var(--grey-bg); }
     .btn-blue { background: var(--blue); color: var(--white); border-color: var(--blue); }
@@ -113,7 +113,7 @@ permalink: reports/index.html
     /* Filter bar */
     .filter-bar { padding: clamp(24px, 3vw, 36px) 0 0; }
     .filter-inner { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding-bottom: clamp(28px, 4vw, 44px); border-bottom: 1px solid var(--grey-border); }
-    .filter-btn { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; padding: 7px 16px; border-radius: var(--r-pill); border: 1.5px solid var(--grey-border); background: var(--white); color: var(--body-sec); cursor: pointer; transition: all var(--ease); }
+    .filter-btn { font-family: 'Hanken Grotesk', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; padding: 7px 16px; border-radius: var(--r-pill); border: 1.5px solid var(--grey-border); background: var(--white); color: var(--body-sec); cursor: pointer; transition: all var(--ease); }
     .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
     .filter-btn.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
     .filter-count { font-size: 11px; font-weight: 600; background: var(--grey-bg); color: var(--body-sec); padding: 2px 7px; border-radius: 10px; margin-left: 4px; }
@@ -126,46 +126,14 @@ permalink: reports/index.html
 
     /* Report cards */
     .hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
-    .hub-card { background: var(--white); border: 1px solid var(--grey-border); border-radius: var(--r-card); overflow: hidden; display: block; text-decoration: none; color: inherit; position: relative; transition: border-color var(--ease), box-shadow var(--ease); }
-    .hub-card:hover { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
-    .hub-card h3 a::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+    .hub-card { display: flex; }
+    .hub-card .rc { flex: 1; }
+
+    {% include "report-card.css" %}
 
     /* Image-based card preview */
-    .card-preview-img {
-      height: 230px;
-      background-size: cover;
-      background-position: center top;
-      position: relative;
-      overflow: hidden;
-    }
-    .card-preview-img::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 55%;
-      background: linear-gradient(transparent, rgba(18,48,132,0.72));
-      pointer-events: none;
-    }
 
-    .card-preview { height: 230px; position: relative; overflow: hidden; }
-    .preview-report { background: var(--ink); height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 22px 24px 20px; position: relative; }
-    .preview-report::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(255,255,255,0.035) 22px, rgba(255,255,255,0.035) 23px); }
-    .preview-report::after { content: ''; position: absolute; top: 0; right: 0; width: 40%; height: 100%; background: linear-gradient(135deg, transparent 30%, rgba(61,53,235,0.5) 100%); }
-    .report-label { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--white); line-height: 1.15; letter-spacing: 1px; position: relative; z-index: 1; }
-    .report-label span { color: var(--lime); display: block; font-size: 28px; margin-bottom: 4px; }
-    .report-cover-rule { width: 40px; height: 2px; background: var(--lime); position: relative; z-index: 1; }
-    .preview-tool { background: var(--ink); height: 100%; display: flex; align-items: center; justify-content: center; gap: 28px; padding: 20px; position: relative; }
-    .preview-tool::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 56px), repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 36px); }
-    .tool-stat { text-align: center; position: relative; z-index: 1; }
-    .tool-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--lime); line-height: 1; display: block; }
-    .tool-lbl { font-size: 9px; font-weight: 600; letter-spacing: 1.3px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
 
-    .card-body { padding: 32px 40px 40px 40px; }
-    .card-chip { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(61,53,235,0.09); color: var(--blue); padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; }
-    .hub-card h3 { font-size: clamp(16px, 1.8vw, 20px); margin-bottom: 10px; }
-    .hub-card p { font-size: 14px; color: var(--body-sec); margin-bottom: 0; line-height: 1.65; }
-    .card-metrics { font-size: 12px; font-weight: 600; letter-spacing: 0.8px; color: var(--body-sec); text-transform: uppercase; padding-top: 16px; margin-top: 16px; border-top: 1px solid var(--grey-border); margin-bottom: 16px; }
-    .card-ctas { display: flex; gap: 8px; flex-wrap: wrap; position: relative; z-index: 2; margin-top: 20px; }
 
     /* Commission CTA */
     .commission { background: var(--ink); border-radius: var(--r-card); padding: clamp(32px, 4vw, 52px); display: flex; justify-content: space-between; align-items: center; gap: 40px; }
@@ -179,10 +147,10 @@ permalink: reports/index.html
     .nl-inner h2 { font-size: clamp(24px, 3vw, 36px); color: var(--white); margin-bottom: 10px; }
     .nl-inner p { font-size: 15px; color: rgba(255,255,255,0.68); line-height: 1.65; }
     .nl-form { display: flex; gap: 10px; }
-    .nl-input { flex: 1; height: 46px; padding: 0 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--r-pill); background: rgba(255,255,255,0.08); color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; transition: border-color var(--ease); }
+    .nl-input { flex: 1; height: 46px; padding: 0 18px; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--r-pill); background: rgba(255,255,255,0.08); color: var(--white); font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; outline: none; transition: border-color var(--ease); }
     .nl-input::placeholder { color: rgba(255,255,255,0.38); }
     .nl-input:focus { border-color: var(--lime); }
-    .nl-btn { height: 46px; padding: 0 22px; background: var(--lime); color: var(--ink); border: none; border-radius: var(--r-pill); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: opacity var(--ease); }
+    .nl-btn { height: 46px; padding: 0 22px; background: var(--lime); color: var(--ink); border: none; border-radius: var(--r-pill); font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: opacity var(--ease); }
     .nl-btn:hover { opacity: 0.85; }
 
     /* Footer */
@@ -199,8 +167,8 @@ permalink: reports/index.html
     .footer-links a:hover::after { width: 100%; }
     .footer-nl-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 14px; line-height: 1.5; }
     .footer-nl-form { display: flex; gap: 8px; }
-    .footer-nl-input { flex: 1; height: 38px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--r-pill); background: rgba(255,255,255,0.07); color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; outline: none; }
-    .footer-nl-btn { height: 38px; padding: 0 14px; background: rgba(255,255,255,0.14); color: var(--white); border: 1px solid rgba(255,255,255,0.28); border-radius: var(--r-pill); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background var(--ease); }
+    .footer-nl-input { flex: 1; height: 38px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--r-pill); background: rgba(255,255,255,0.07); color: var(--white); font-family: 'Hanken Grotesk', sans-serif; font-size: 13px; outline: none; }
+    .footer-nl-btn { height: 38px; padding: 0 14px; background: rgba(255,255,255,0.14); color: var(--white); border: 1px solid rgba(255,255,255,0.28); border-radius: var(--r-pill); font-family: 'Hanken Grotesk', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background var(--ease); }
     .footer-nl-btn:hover { background: rgba(255,255,255,0.24); }
     .footer-hr { border: none; border-top: 1px solid rgba(255,255,255,0.14); margin-bottom: 24px; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -265,29 +233,7 @@ permalink: reports/index.html
       {% for report in collections.reports %}
       {% set r = report.data %}
       <div class="hub-card" data-tag="{{ r.tag }}">
-        <a href="/reports/{{ r.slug }}/">
-          <div class="card-preview">
-            {% if r.image_url %}<div class="card-preview-img" style="background-image:url('{{ r.image_url }}')"></div>
-            {% elif r.tag == "Data Tool" %}<div class="preview-tool">
-              {% if r.stat1_num %}<div class="tool-stat"><span class="tool-num">{{ r.stat1_num }}</span><span class="tool-lbl">{{ r.stat1_label }}</span></div>{% endif %}
-              {% if r.stat2_num %}<div class="tool-stat"><span class="tool-num">{{ r.stat2_num }}</span><span class="tool-lbl">{{ r.stat2_label }}</span></div>{% endif %}
-              {% if r.stat3_num %}<div class="tool-stat"><span class="tool-num">{{ r.stat3_num }}</span><span class="tool-lbl">{{ r.stat3_label }}</span></div>{% endif %}
-            </div>
-            {% else %}<div class="preview-report"><div class="report-label"><span>{{ r.cover_year }}</span>{{ r.cover_label | safe }}</div><div class="report-cover-rule"></div></div>
-            {% endif %}
-          </div>
-        </a>
-        <div class="card-body">
-          <span class="card-chip">{{ r.tag }}</span>
-          <h3><a href="/reports/{{ r.slug }}/">{{ r.title }}</a></h3>
-          <p>{{ r.description }}</p>
-          {% set byNames = r.authors | authorNames(collections.authors) %}{% if byNames %}<p class="card-by">By {{ byNames }}</p>{% endif %}
-          {% if r.metrics %}<p class="card-metrics">{{ r.metrics }}</p>{% else %}<div style="height:16px"></div>{% endif %}
-          <div class="card-ctas">
-            <a href="{{ r.primary_cta_url }}" class="btn btn-blue btn-sm">{{ r.primary_cta_text }}</a>
-            {% if r.has_download %}<a href="/reports/{{ r.slug }}/" class="btn btn-ghost btn-sm">Download</a>{% endif %}
-          </div>
-        </div>
+        {% include "report-card.njk" %}
       </div>
       {% endfor %}
     </div>
@@ -316,7 +262,7 @@ permalink: reports/index.html
       </div>
       <div>
         <form class="nl-form" onsubmit="return nlSubscribe(this)">
-          <input class="nl-input" type="email" name="email" placeholder="Your email address" required>
+          <input class="nl-input" type="email" name="email" placeholder="Your email address" required aria-label="Your email address">
           <button class="nl-btn" type="submit">Subscribe →</button>
         </form>
       </div>

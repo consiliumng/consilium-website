@@ -21,6 +21,11 @@ collections:
         name: "tag"
         widget: "select"
         options: ["Research Report", "Data Tool", "Policy Brief"]
+      - label: "Topic (groups this work on the home page)"
+        name: "topic"
+        widget: "select"
+        options: ["Workforce", "Policy", "Markets"]
+        default: "Workforce"
       - { label: "Short description (shown on cards)", name: "description", widget: "text" }
       - label: "Authors (pick from the list. Add a person under Authors first if they are not there yet)"
         name: "authors"
@@ -36,7 +41,9 @@ collections:
       - { label: "Methodology note (leave blank if not applicable — e.g. financial valuations)", name: "methodology", widget: "text", required: false }
       - { label: "Metrics line (optional, shown on cards)", name: "metrics", widget: "string", required: false }
       - { label: "Cover image", name: "image_url", widget: "image", required: false }
-      - { label: "Cover label (used when there's no image)", name: "cover_label", widget: "string" }
+      - { label: "Key figure on the card (e.g. 89.1%, 24, or \u20a6250k)", name: "cover_stat", widget: "string", required: false }
+      - { label: "What the key figure means (one short line)", name: "cover_stat_label", widget: "string", required: false }
+      - { label: "Cover label (shown only when there is no key figure)", name: "cover_label", widget: "string", required: false }
       - { label: "Cover year", name: "cover_year", widget: "string" }
       - { label: "Primary button text", name: "primary_cta_text", widget: "string" }
       - { label: "Primary button link", name: "primary_cta_url", widget: "string" }

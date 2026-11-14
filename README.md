@@ -81,9 +81,9 @@ Three collections, all managed through the CMS at `/admin`:
   and pull-quotes), auto-generated table of contents from your `##`
   headings, key takeaways, author, and SEO fields.
 - **Posts** (`content/posts/`) — short entries that link out to an
-  external Substack post. The Writing page and homepage both merge Posts
+  external Substack post. The Articles page and homepage both merge Posts
   and Articles into one date-sorted feed automatically (see
-  `collections.writing` in `eleventy.config.js`) — visitors never see a
+  `collections.articlesFeed` in `eleventy.config.js`) — visitors never see a
   difference between the two types.
 
 **Currently migrated:** the 2 reports and 3 posts that were embedded as
@@ -148,6 +148,31 @@ when), Brevo's dashboard (did they open/click the email), and a GA4
 `report_download` event fired client-side on success, tagged with the
 report's slug and title — giving you a full funnel in Google Analytics,
 not just a raw total.
+
+## Brand and design
+
+The full brand guide is in [BRAND.md](BRAND.md) (colour, type, logo, corner scale,
+report cards, chart rules, the command panel data tool, social graphics and
+social video). A visual version is kept alongside it. Quick pointers for editing
+the site:
+
+- **Fonts:** Fraunces for headlines, Hanken Grotesk for everything else
+  (big numbers are Hanken at weight 300). Loaded once in `_includes/base.njk`.
+- **Logo:** use the files in `assets/` (white on Blue or Ink, colour on light).
+  Never type the name beside the mark.
+- **Report cards:** drawn by one shared template, `_includes/report-card.njk`
+  and `_includes/report-card.css`, used on the home page and the Reports page.
+  Each report supplies a **Key figure** and **What it means** in the CMS
+  (`cover_stat`, `cover_stat_label`) and a **Topic** (Workforce, Policy, Markets).
+- **Home page hero:** the work panel, proof strip and footer "Latest work" list
+  are built from the reports collection plus `_data/site.json` (commissioned
+  studies, states reached, site address and the Apps Script URL).
+- **Footer year** is generated at build time (`buildYear` in `eleventy.config.js`).
+- **Newsletter opt-ins** open Substack's confirmation page in a new tab
+  (`substackSubscribe` in `_includes/base.njk`).
+- **Charts and data tools** follow the chart rules and the command panel pattern
+  in BRAND.md. The working example is the funding chart in
+  `reports/us-nigeria-mou/index.html`.
 
 ## Local development
 

@@ -3,11 +3,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("og-image.png");
   eleventyConfig.addPassthroughCopy("reports/us-nigeria-mou");
   eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("assets");
   // CMS-uploaded images and PDFs (cover images, preview figures, report
   // PDFs) land here — without this, every file uploaded through the CMS
   // would 404 on the live site.
   eleventyConfig.addPassthroughCopy({ "content/uploads": "content/uploads" });
   eleventyConfig.ignores.add("README.md");
+  eleventyConfig.ignores.add("BRAND.md");
+  // Current year for the footer, so it never goes stale.
+  eleventyConfig.addGlobalData("buildYear", () => new Date().getFullYear());
 
   // REPORTS collection — one entry per file in content/reports/
   // sorted newest first. This replaces the REPORTS_CSV_URL fetch +
@@ -149,6 +154,12 @@ module.exports = function (eleventyConfig) {
     const d = new Date(dateValue);
     if (fmt === "yyyy") return String(d.getFullYear());
     return d.toISOString();
+  });
+
+  // Earliest year among collection items (the "publishing since" figure).
+  eleventyConfig.addFilter("earliestYear", function (items) {
+    const years = (items || []).map((i) => new Date(i.date).getFullYear()).filter(Boolean);
+    return years.length ? Math.min.apply(null, years) : "";
   });
 
   // slugify — used by the two heading filters below
