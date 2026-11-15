@@ -312,5 +312,4 @@ permalink: contact.html
   function updateNav() { themed.forEach(s => { const r = s.getBoundingClientRect(); if (r.top <= 64 && r.bottom > 64) navEl.setAttribute('data-theme', s.dataset.navTheme); }); }
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
-  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
 </script>

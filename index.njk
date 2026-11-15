@@ -1649,17 +1649,7 @@ permalink: index.html
   window.addEventListener('scroll', updateNavTheme, { passive: true });
   updateNavTheme(); // set correct theme on load
 
-  // Hamburger menu
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
+  // Hamburger menu: handled once, in the shared layout (_includes/base.njk)
 
   // Accordion — one open at a time
   document.querySelectorAll('.acc-trigger').forEach(trigger => {

@@ -141,9 +141,23 @@ nav[data-theme="light"] .nav-logo .logo-colour { opacity: 1; }
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   if (hamburger && mobileMenu) {
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-controls', 'mobile-menu');
+    function setMenu(open) {
+      mobileMenu.classList.toggle('open', open);
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    }
     hamburger.addEventListener('click', function () {
-      mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open');
+      setMenu(!mobileMenu.classList.contains('open'));
+    });
+    // Close after choosing a link, or with Escape
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenu(false);
     });
   }
 })();
