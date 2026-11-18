@@ -1,0 +1,73 @@
+source_id,n_rows,sheet_rows,sources
+S001,1,2,"[Global Fund, Apr 2011](https://www.theglobalfund.org/en/news/2011/2011-04-21-international-initiative-slashes-cost-of-anti-malaria-drugs-in-several-african-countries/)"
+S002,1,3,[ACTwatch trend (Malaria Journal 2024)](https://malariajournal.biomedcentral.com/articles/10.1186/s12936-024-04863-9); [CBN Apr 2011 N153.92/$ (InvestorsKing)](https://investorsking.com/?p=70613)
+S003,1,4,"[Soremekun et al., JCMPHC 2013](https://ajol.info/index.php/jcmphc/article/view/102235/92272)"
+S004,9,5 15 20 27 31 37 45 54 58,[NHIS drug price list 2013 (copy)](https://gist.github.com/Ogala/b8779154015c1ce0ebe2557641a54fd4)
+S005,2,6 8,"[Guardian, Feb 2017](https://guardian.ng/news/anti-malarial-antibiotics-cost-rises-by-150/)"
+S006,1,7,[ACTwatch trend (Malaria Journal 2024)](https://malariajournal.biomedcentral.com/articles/10.1186/s12936-024-04863-9); [CBN N197/$ 2015 (BusinessDay)](https://businessday.ng/business-economy/article/the-buhari-legacy-series-naira-loses-over-half-its-value-in-eight-years/)
+S007,7,9 16 17 22 30 32 47,"[Nimed Health, c.2019](https://nimedhealth.com.ng/2019/04/15/medicine-drug-prices-in-nigeria/)"
+S008,4,10 50 51 62,"[Nairametrics, Dec 2024](https://nairametrics.com/2024/12/06/drug-prices-rise-more-than-100-as-nigerians-enter-christmas-season/)"
+S009,3,11 12 34,"[Nigerian Watch, 2024](https://web.archive.org/web/20260713100513/https://nigerianwatch.com/business/Rising-Drug-Costs-Threaten-Life-Expectancy-in-Nigeria,-Experts-Warn)"
+S010,1,13,[GoMed Coartem](https://gomed.ng/product/coartem-80-480mg-tablet)
+S011,5,14 26 42 57 64,"[Ogbogwu, Nov 2026](https://ogbogwu.com/essential-medicines/)"
+S012,1,18,[GoMed Troxone](https://gomed.ng/product/troxone-ceftriaxone-for-injection-1g-im-iv)
+S013,1,19,[GoMed Rocephin](https://gomed.ng/product/rocephin-iv-injection-1g)
+S014,5,21 29 46 56 61,[Abuja survey Feb-Apr 2019 (PLOS One)](https://pmc.ncbi.nlm.nih.gov/articles/PMC8360378/)
+S015,4,23 24 39 40,"[Guardian, Jul 2023](https://guardian.ng/features/trouble-in-health-sector-as-drugs-cost-of-care-spike-by-150/)"
+S016,3,25 33 35,"[Prime Business Africa, 2024](https://primebusiness.africa/?p=133277)"
+S017,3,28 55 60,[Rural pharmacy price study (ResearchGate)](https://www.researchgate.net/publication/325487902_A_Comparative_Analysis_of_Patients'_Medicine_Price_in_a_Public_Tertiary_Hospital_and_Private_Retail_Community_Pharmacy_in_a_Rural_Nigerian_Community)
+S018,1,36,"[Ogbogwu antibiotics, Aug 2026](https://ogbogwu.com/drugs/category/antibiotics/)"
+S019,1,38,"[Vanguard via Substack, Oct 2023](https://kolaking.substack.com/p/depreciating-naira-value-pushes-medical)"
+S020,2,41 63,"[BusinessDay, 2026](https://businessday.ng/news/article/waivers-boost-pharma-gains-but-medicine-remains-costly/)"
+S021,1,43,"[Cost-utility study, 2011 values (ResearchGate)](https://www.researchgate.net/publication/255990433_Cost-Utility_Analysis_of_Pharmaceutical_Care_Intervention_Versus_Usual_Care_in_Management_of_Nigerian_Type_2_Diabetes_Patients)"
+S022,1,44,[UBTH study (J Inst Med 2013)](https://www.researchgate.net/publication/259192463_Cost_of_treating_insulin-requiring_diabetes_in_children_and_adolescents)
+S023,1,48,"[HumAngle, 2025](https://www.humanglemedia.com/how-nigerians-are-adapting-to-soaring-medical-and-drug-costs)"
+S024,1,49,"[BusinessDay, 2024 (diabetes)](https://businessday.ng/news/article/diabetes-patients-turn-to-quacks-as-soaring-drug-prices-bite-group-warns/)"
+S025,1,52,"[Guardian, Nov 2024 (diabetes)](https://guardian.ng/news/nigeria/world-diabetes-day-epidemic-worsens-as-cost-of-drugs-hits-n100000-per-patient-monthly/)"
+S026,1,53,"[Leadership, Nov 2026](https://leadership.ng/11-4m-nigerians-living-with-diabetes-most-unable-to-afford-treatment-association)"
+S027,1,59,[LUTH study (Niger J Clin Pract 2016)](https://www.njcponline.com/article.asp?issn=1119-3077;year=2016;volume=19;issue=5;spage=668;epage=672;aulast=Bakare)
+S028,1,65,"[UNTH eye clinic, Apr 2013 (NJCP)](https://www.ovid.com/jnls/njcp/fulltext/10.4103/1119-3077.141423~patients-satisfaction-with-eye-care-services-in-a-nigerian)"
+S029,1,66,"[BusinessDay, Oct 2017](https://businessday.ng/?p=224085)"
+S030,6,67 69 72 74 77 79,"[Medical World Nigeria, Jun 2024](https://medicalworldnigeria.com/post/HIGH-COST-OF-CARE-HITS-PUBLIC-HOSPITALS-UNINSURED-PATIENTS?pid=70343)"
+S031,7,68 73 78 82 90 96 101,[NHIA fee-for-service price list](https://www.nhia.gov.ng/professional-ffs-price-list/)
+S032,1,70,"[Lagos.cool, 2026](https://lagos.cool/health)"
+S033,1,71,"[Nimed Health, Jan 2020 (X-ray)](https://nimedhealth.com.ng/2020/01/12/how-much-does-it-cost-to-do-x-ray-in-nigeria-types-of-x-rays-their-prices-in-nigeria/)"
+S034,1,75,[XrayCost Nigeria](https://xraycost.com/x-ray-cost-nigeria/)
+S035,6,76 80 89 91 92 97,"[BusinessDay, Oct 2026 (maternity)](https://businessday.ng/health/article/costly-maternity-care-worsens-maternal-health-crisis/)"
+S036,1,81,"[Nimed Health, c.2019 (blood tests)](https://nimedhealth.com.ng/2019/04/12/20-common-blood-tests-and-their-cost/)"
+S037,1,83,"[VDM, 2026](https://vdm.ng/blog/cost-of-medical-checkups-in-nigeria/)"
+S038,2,84 98,"[Sambo et al., Niger Med J 2013](https://pubmed.ncbi.nlm.nih.gov/23798792/)"
+S039,2,85 118,[FMC Birnin-Kebbi (J Women's Health Care 2013)](https://www.longdom.org/open-access-pdfs/expenditure-on-emergency-obstetric-care-in-a-federal-tertiary-institution-in-nigeria-2167-0420.1000134.pdf)
+S040,1,86,"[Guardian, Nov 2016](https://guardian.ng/news/how-lagos-hospitals-fleece-pregnant-women/)"
+S041,2,87 94,"[Ado-Ekiti study, 2019 (IOMC)](https://www.iomcworld.org/open-access/the-rate-and-costs-of-caesarean-section-among-women-in-adoekiti-nigeria.pdf)"
+S042,1,88,[LUTH cost study (medRxiv 2020)](https://www.medrxiv.org/content/10.1101/2020.09.22.20199265v1.full.pdf)
+S043,1,93,"[Vanguard, Nov 2016](https://www.vanguardngr.com/2016/11/pregnant-women-lament-high-cost-services-lagos-hospitals/amp/)"
+S044,1,95,[Ido-Ekiti study (Texila 2021)](https://web.archive.org/web/20240808072103/https://www.texilajournal.com/thumbs/article/Public_Health_Vol9_Issue2_Article_22.pdf)
+S045,2,99 100,"[Guardian editorial, Sep 2015](https://guardian.ng/opinion/on-ante-natal-fee-in-lagos-hospitals/)"
+S046,1,102,[HMO survey (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4178337)
+S047,2,103 105,[EasyClinic (citing NHIA/BusinessDay)](https://www.easyclinic.io/nhia-accreditation-nigeria/)
+S048,1,104,[JRMDS study](https://www.jrmds.in/articles/patients-experiences-in-accessing-national-health-insurance-services-in-nigeria-66740.html)
+S049,1,106,"[Nairametrics, Aug 2025](https://nairametrics.com/2025/08/02/insured-but-uncovered-nigerians-struggle-as-health-insurance-fails-to-deliver/)"
+S050,1,107,[Profolio (NSIWC circular SWC.04/T/207)](https://www.profolio.ng/medical-doctor/salary-guide)
+S051,1,108,"[Nairaland thread, Aug 2014](https://www.nairaland.com/1870400/how-much-doctors-doing-housejob)"
+S052,1,109,"[Nairaland thread, c.2017](https://www.nairaland.com/4114345/salaries-medical-doctors-nigeria/2)"
+S053,1,110,"[Nimed Health 36-state list](https://nimedhealth.com.ng/2026/03/26/house-officers-salary-across-the-36-states-in-nigeria-2023/); [MDCN, Nov 2024 (CONMESS rise)](https://www.mdcn.gov.ng/public/storage/documents/document_253975197.pdf)"
+S054,1,111,"[Doclumina housemanship report, 2026](https://www.doclumina.org/blog/annual-housemanship-salary-report-in-nigeria-2026/)"
+S055,6,112 113 114 115 116 117,"[UK Home Office CIN, Dec 2025](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1050022/NGA_CIN_Medical_treatment_and_healthcare.pdf)"
+S056,1,119,"[Nairaland, Nov 2012](https://www.nairaland.com/450306/what-cost-c-section-nigeria)"
+S057,1,120,"[BMC Infect Dis 2019 (DR-TB costing, 2014 prices)](https://link.springer.com/article/10.1186/s12879-018-3636-1)"
+S058,1,121,[UBTH malaria cost study (Sep-Nov 2014)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11003204/)
+S059,2,122 123,"[Guardian, Aug 2017 (test prices)](https://guardian.ng/features/how-soaring-cost-of-medical-examination-diagnosis-impair-medicare/)"
+S060,1,124,[ACTwatch trend (Malaria Journal 2024)](https://malariajournal.biomedcentral.com/articles/10.1186/s12936-024-04863-9); [CIA Factbook 2016 est. (exchange rate)](https://austria-forum.org/af/Geography/Africa/Nigeria/Economy?skin=raw)
+S061,3,125 126 127,"[Okoro et al., Braz J Pharm Sci 2021 (Maiduguri, Jan-Feb 2017)](https://www.scielo.br/j/bjps/a/zqymZPXS5tz86PMgyP3XhRH/)"
+S062,1,128,"[Punch, Nov 2016 (repost)](https://trwstockbrokers.wordpress.com/2016/11/16/crisis-looms-as-prices-of-drugs-increase-by-150-punch-newspapers/)"
+S063,1,129,"[MarketingEdge, 2016](https://marketingedge.com.ng/how-brands-are-responding-to-the-recession/)"
+S064,1,130,"[Vanguard, Feb 2017 (I CARE survey)](https://www.vanguardngr.com/2017/02/nigerians-face-harder-times-prices-drugs-skyrocket/)"
+S065,1,131,"[Nimed Health, Dec 2017 (ANC)](https://nimedhealth.com.ng/2017/12/01/antenatal-care-in-nigeria-focused-antenatal-care-in-nigeriawhen-to-start-services-cost/)"
+S066,1,132,"[Vanguard/NAN, Mar 2022 (LUTH)](https://www.vanguardngr.com/2022/03/dental-patients-groan-over-exorbitant-billings-by-luth/)"
+S067,2,133 134,"[KADCHMA benefit package, 2022](https://kadchma.kdsg.gov.ng/wp-content/uploads/2022/04/KADCHMA-BENEFIT-PACKAGE-PDF.pdf)"
+S068,1,135,"[Nimed Health, Oct 2019 (scans)](https://nimedhealth.com.ng/2019/10/15/how-much-is-pregnancy-test-in-nigeria/)"
+S069,1,136,"[Nairaland, Jun 2021](https://www.nairaland.com/6602815/cost-antenatal)"
+S070,1,137,"[Zikoko, 2021](https://www.zikoko.com/money/6-parents-talk-how-much-it-costs-to-have-their-babies/)"
+S071,1,138,"[Asset Pharmacy, 2026](https://assetpharmacy.com/product/amoxil-500mg-capsules-10-capsules/)"
+S072,6,139 140 141 142 143 144,"[NHIS Medicines Price List, October 2021 (WHO-hosted PDF)](https://cdn.who.int/media/docs/default-source/essential-medicines/national-essential-medicines-lists-%28neml%29/afro_neml/nigeria-nhis-medicines-price-list-2021-ed-2.pdf?sfvrsn=2382181a_1)"

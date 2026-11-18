@@ -1,0 +1,24 @@
+year,cpi_2010_100,source
+2003,45.29,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2004,52.08,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2005,61.39,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2006,66.44,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2007,70.02,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2008,78.13,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2009,87.94,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2010,100.0,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2011,110.84,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2012,124.38,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2013,134.92,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2014,145.8,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2015,158.94,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2016,183.85,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2017,214.23,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2018,240.14,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2019,267.51,IndexMundi / IMF IFS https://www.indexmundi.com/facts/nigeria/consumer-price-index
+2020,302.94,HistorySaid / World Bank WDI https://historysaid.com/nigeria/consumer-price-index/2020s
+2021,354.3,HistorySaid / World Bank WDI https://historysaid.com/nigeria/consumer-price-index/2020s
+2022,421.07,HistorySaid / World Bank WDI https://historysaid.com/nigeria/consumer-price-index/2020s
+2023,524.91,HistorySaid / World Bank WDI https://historysaid.com/nigeria/consumer-price-index/2020s
+2024,699.39,HistorySaid / World Bank WDI https://historysaid.com/nigeria/consumer-price-index/2020s
+Latest (Sep 2026),1023.6559210521959,"Derived: 2024 avg on old base x (June 2026 index 143 rolled forward with m/m 1.57%, 0.71%, 0.06%) / 100"

@@ -2,6 +2,9 @@ module.exports = function (eleventyConfig) {
   // Static passthrough — files Netlify should serve as-is
   eleventyConfig.addPassthroughCopy("og-image.png");
   eleventyConfig.addPassthroughCopy("reports/us-nigeria-mou");
+  // Cost-of-healthcare report: built by healthcare-cost/scripts/build_mockup.py into
+  // healthcare-cost/draft, served at /reports/healthcare-cost/
+  eleventyConfig.addPassthroughCopy({ "healthcare-cost/draft": "reports/healthcare-cost" });
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("assets");
@@ -11,6 +14,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "content/uploads": "content/uploads" });
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("BRAND.md");
+  eleventyConfig.ignores.add("healthcare-cost/**");
+  // Brand tools (the Studio) are for internal use. Never build them into the public site.
+  eleventyConfig.ignores.add("brand/**");
   // Current year for the footer, so it never goes stale.
   eleventyConfig.addGlobalData("buildYear", () => new Date().getFullYear());
 
