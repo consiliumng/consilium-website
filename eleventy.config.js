@@ -5,9 +5,6 @@ module.exports = function (eleventyConfig) {
   // Cost-of-healthcare report: built by healthcare-cost/scripts/build_mockup.py into
   // healthcare-cost/draft, served at /reports/healthcare-cost/
   eleventyConfig.addPassthroughCopy({ "healthcare-cost/draft": "reports/healthcare-cost" });
-  // Lean-clinic report (PDF, share card, chart previews): built by healthcare-streamlining/scripts/build_report.py,
-  // published files collected in healthcare-streamlining/site, served beside the generated page at /reports/lean-clinic/
-  eleventyConfig.addPassthroughCopy({ "healthcare-streamlining/site": "reports/lean-clinic" });
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("assets");
@@ -18,7 +15,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("BRAND.md");
   eleventyConfig.ignores.add("healthcare-cost/**");
-  eleventyConfig.ignores.add("healthcare-streamlining/**");
   // Brand tools (the Studio) are for internal use. Never build them into the public site.
   eleventyConfig.ignores.add("brand/**");
   // Current year for the footer, so it never goes stale.

@@ -10,7 +10,6 @@ eleventyComputed:
   description: "{{ report.data.description }}"
   activePage: reports
   permalinkPath: "reports/{{ report.data.slug }}/"
-  ogImage: "{{ report.data.og_image }}"
 ---
 {% set r = report.data %}
 {% set authorList = r.authors | resolveAuthors(collections.authors) %}

@@ -1,7 +1,0 @@
-build/png/
-build/ref/
-build/fonts/
-build/*.png
-build/report.html
-__pycache__/
-*.pyc
