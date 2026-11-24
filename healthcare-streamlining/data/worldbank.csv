@@ -1,0 +1,169 @@
+country,indicator,label,year,value
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2015,192.440333333333
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2016,253.492
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2017,305.790109160004
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2018,306.083688245234
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2019,306.920951495222
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2020,358.810797258297
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2021,401.152029220779
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2022,425.979158066857
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2023,645.194067883201
+NGA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2024,1478.96519740023
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2015,1168
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2016,1155
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2017,1142
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2018,1118
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2019,1091
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2020,1065
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2021,1046
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2022,1016
+NGA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2023,993
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2015,3.58194995
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2016,3.64773679
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2017,3.74762511
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2018,3.09069347
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2019,2.98547053
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2020,3.38063431
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2021,4.07625723
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2022,4.21020174
+NGA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2023,4.19086456
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2015,92.91207123
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2016,75.52328491
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2017,70.31814575
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2018,63.60244751
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2019,67.6254425
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2020,67.91384888
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2021,81.87322235
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2022,89.62958527
+NGA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2023,66.82009125
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2015,185.883651818011
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2016,183.201497764993
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2017,187.264875900133
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2018,157.105270993209
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2019,160.09311654049
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2020,180.989195655141
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2021,223.855835573472
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2022,250.453375868746
+NGA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2023,260.144634681531
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2015,5.33124638
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2016,4.8661375
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2017,4.44235229
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2018,3.8811214
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2019,3.76171207
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2020,4.18390417
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2021,4.3079586
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2022,4.3079586
+NGA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2023,4.3079586
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2015,71.89007568
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2016,75.18703461
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2017,77.38787079
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2018,75.94579315
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2019,71.49702454
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2020,74.67578125
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2021,76.24337006
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2022,75.73786163
+NGA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2023,71.90481567
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2015,51.939
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2016,52.189
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2017,52.397
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2018,52.669
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2019,53.009
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2020,53.072
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2021,53.455
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2022,54.079
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2023,54.462
+NGA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2024,54.635
+NGA,SP.POP.TOTL,Population,2015,190671878
+NGA,SP.POP.TOTL,Population,2016,195443700
+NGA,SP.POP.TOTL,Population,2017,200254579
+NGA,SP.POP.TOTL,Population,2018,204938755
+NGA,SP.POP.TOTL,Population,2019,209485641
+NGA,SP.POP.TOTL,Population,2020,213996181
+NGA,SP.POP.TOTL,Population,2021,218529286
+NGA,SP.POP.TOTL,Population,2022,223150896
+NGA,SP.POP.TOTL,Population,2023,227882945
+NGA,SP.POP.TOTL,Population,2024,232679478
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2015,719.8595555
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2016,787.25152175
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2017,831.55433975
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2018,861.093412166666
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2019,899.350509
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2020,943.278048166666
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2021,988.624806551768
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2022,1030.30829974206
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2023,1160.09869425
+RWA,PA.NUS.FCRF,"Official exchange rate, LCU per US$ (period average)",2024,1318.12835733333
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2015,292
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2016,278
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2017,275
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2018,269
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2019,261
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2020,252
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2021,254
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2022,234
+RWA,SH.STA.MMRT,"Maternal deaths per 100,000 live births (modelled)",2023,229
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2015,6.65061283
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2016,5.968925
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2017,5.37623835
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2018,5.45722818
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2019,4.91471481
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2020,5.79862261
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2021,6.23147202
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2022,5.92842579
+RWA,SH.XPD.CHEX.GD.ZS,"Health spending, % of GDP",2023,5.12708998
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2015,48.81296921
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2016,43.54212189
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2017,40.76682663
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2018,42.11674881
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2019,39.81322098
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2020,45.15266418
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2021,51.64677429
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2022,57.83102036
+RWA,SH.XPD.CHEX.PC.CD,"Health spending per person, US$ (current)",2023,52.65630722
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2015,118.424316858654
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2016,111.397438778553
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2017,105.7980752588
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2018,115.991216590163
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2019,114.814024310661
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2020,132.488857137092
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2021,170.181440853356
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2022,183.542564770083
+RWA,SH.XPD.CHEX.PP.CD,"Health spending per person, PPP int$ (current)",2023,177.011280229869
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2015,7.9149456
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2016,6.23024607
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2017,6.23024607
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2018,6.23024607
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2019,6.27615356
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2020,6.39129972
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2021,8.35194492
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2022,8.20253277
+RWA,SH.XPD.GHED.GE.ZS,"Government health spending, % of government spending",2023,8.92309856
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2015,12.1820488
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2016,13.24364662
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2017,14.04872417
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2018,11.50553894
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2019,10.07819271
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2020,7.20577335
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2021,5
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2022,4.19999981
+RWA,SH.XPD.OOPC.CH.ZS,"Out-of-pocket, % of health spending",2023,4.0999999
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2015,65.419
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2016,65.733
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2017,66.14
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2018,66.354
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2019,66.691
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2020,66.953
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2021,66.85
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2022,67.528
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2023,67.785
+RWA,SP.DYN.LE00.IN,"Life expectancy at birth, years",2024,68.017
+RWA,SP.POP.TOTL,Population,2015,11640022
+RWA,SP.POP.TOTL,Population,2016,11919183
+RWA,SP.POP.TOTL,Population,2017,12202060
+RWA,SP.POP.TOTL,Population,2018,12487996
+RWA,SP.POP.TOTL,Population,2019,12776103
+RWA,SP.POP.TOTL,Population,2020,13065837
+RWA,SP.POP.TOTL,Population,2021,13355260
+RWA,SP.POP.TOTL,Population,2022,13651030
+RWA,SP.POP.TOTL,Population,2023,13954471
+RWA,SP.POP.TOTL,Population,2024,14256567
